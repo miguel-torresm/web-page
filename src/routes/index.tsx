@@ -69,6 +69,7 @@ function ThemeToggle() {
 function Nav() {
   const links = [
     ["About", "#about"],
+    ["Education", "#education"],
     ["News", "#news"],
     ["Research", "#research"],
     ["Teaching", "#teaching"],
