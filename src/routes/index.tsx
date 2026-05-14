@@ -143,7 +143,7 @@ function About() {
 
           <aside className="md:w-64 mx-auto md:mx-0">
             <div className="rounded-full overflow-hidden ring-1 ring-border w-44 h-44 md:w-56 md:h-56 mx-auto">
-              <img src={portrait} alt="Miguel Ángel Torres Montoya" className="w-full h-full object-cover" />
+              <img src={portrait} alt="Miguel Ángel Torres Montoya" className="w-full h-full object-cover object-[50%_25%]" />
             </div>
             <div className="mt-5 font-mono text-xs leading-relaxed text-muted-foreground whitespace-pre-line text-center md:text-left">
               {`B.A. in Economics (in progress)
@@ -162,10 +162,10 @@ Cali, Colombia`}
 function News() {
   const items = [
     {
-      date: "Feb 2025",
+      date: "2025",
       body: (
         <>
-          Our work with CIENFI and the <em>Secretaría Distrital de Desarrollo Económico de Bogotá</em>{" "}
+          Our work with CIENFI and the <em>Secretaría de Desarrollo Económico de Bogotá</em>{" "}
           on the spatial disaggregation of Bogotá's GDP using nighttime lights (Suomi-NPP, NOAA-20)
           and TransMilenio mobility data was featured in <em>El Tiempo</em>.
         </>
@@ -175,7 +175,7 @@ function News() {
       date: "2025",
       body: (
         <>
-          Awarded <strong>third place</strong> in the Undergraduate Paper Competition on the
+          Awarded <strong>third place</strong> in the Undergraduate Presentation Competition on the
           Economics of Crime, Universidad Icesi.
         </>
       ),
@@ -234,19 +234,34 @@ function Research() {
   ];
   const projects = [
     {
-      title: "Spatial disaggregation of GDP and informality in Bogotá",
-      authors: "with E. F. Martínez-González and CIENFI · 2025 (work in progress).",
-      body: "We estimate Bogotá's GDP at a 450×450 m grid resolution by combining VIIRS nighttime radiance (Suomi-NPP, NOAA-20), TransMilenio mobility records, and census microdata, and use XGBoost and neural-network models to map informality at the neighborhood level.",
+      title: "Spatial Disaggregation of GDP and Informality in Bogotá",
+      authors: "with E. F. Martínez-González (CIENFI) · in progress.",
+      body: "Spatially disaggregates Bogotá's GDP using nighttime lights, DANE 2018 census data, and TransMilenio mobility data, and maps informality at fine resolution via XGBoost and neural-network classifiers.",
     },
     {
-      title: "Predicting urban expansion in Colombia, 2013–2025",
-      authors: "Single-authored, in progress.",
-      body: "I classify built-up extent across Colombian cities using Landsat 8 spectral indices (NDBI, NDVI, NDWI) processed in Google Earth Engine, and benchmark ensemble classifiers against k-NN and convolutional approaches to forecast short-run urbanization.",
+      title: "Gender Disparities in the Colombian Criminal Justice System",
+      authors: "Undergraduate thesis · supervised by E. F. Martínez-González and Daniel Mejía-Londoño.",
+      body: "Examines gender differences in criminal sentencing within Colombia's accusatory system, exploiting a natural experiment to identify disparities net of case characteristics and defendant histories.",
     },
     {
-      title: "Gender disparities in criminal specialization and sentencing in Colombia",
-      authors: "Undergraduate thesis, supervised by E. F. Martínez-González.",
-      body: "Using judicial microdata from Colombia's accusatory system, I estimate gender differences in criminal specialization patterns and in the severity of sentences across criminal categories, controlling for case characteristics and defendant histories.",
+      title: "Strategic Default in Credit Unions",
+      authors: "with E. F. Martínez-González · in progress.",
+      body: "Econometric analysis of strategic default behavior in Colombian credit unions, examining borrower incentives when multiple lending institutions are simultaneously available.",
+    },
+    {
+      title: "Sentencing Process Analysis in the Colombian Accusatory System",
+      authors: "with E. F. Martínez-González and Daniel Mejía-Londoño · in progress.",
+      body: "Examines the full criminal-justice pipeline from criminal notice to final ruling, identifying procedural bottlenecks and sentencing disparities along the process.",
+    },
+    {
+      title: "Construction of Economic Centres in Cali",
+      authors: "with Cámara de Comercio de Cali and Invest Pacific · in progress.",
+      body: "Delineates Cali's economic subcenters by sector using georeferenced firm-level data and a spatial activity index.",
+    },
+    {
+      title: "Urbanization Prediction Model for Colombia, 2013–2025",
+      authors: "CIENFI · in progress.",
+      body: "Integrates Landsat 8 spectral indices (NDBI, NDVI, NDWI) with DANE 2018 census blocks and benchmarks k-NN and XGBoost classifiers to predict urban extent across Colombia.",
     },
   ];
   return (
@@ -323,10 +338,11 @@ function Teaching() {
 
 function Tools() {
   const groups = [
-    { label: "Programming", items: ["R (advanced)", "Python", "LaTeX", "Git"] },
-    { label: "Geospatial", items: ["Google Earth Engine", "rgee", "QGIS", "Landsat 8", "VIIRS (Suomi-NPP / NOAA-20)"] },
-    { label: "Methods", items: ["Causal inference", "XGBoost", "k-NN", "Neural networks", "Spatial econometrics"] },
-    { label: "Languages", items: ["Spanish (native)", "English (C1)"] },
+    { label: "Programming", items: ["R (advanced)", "Python (intermediate)"] },
+    { label: "Geospatial", items: ["Google Earth Engine (rgee)", "QGIS"] },
+    { label: "Methods", items: ["XGBoost", "k-NN", "Neural networks", "Spatial econometrics", "Remote sensing", "Statistical modeling", "Data visualization"] },
+    { label: "Other tools", items: ["LaTeX", "Git", "Excel (advanced)", "PowerPoint", "Canva"] },
+    { label: "Languages", items: ["Spanish (native)", "English — Professional Working Proficiency (C1)"] },
   ];
   return (
     <SectionBlock id="skills" title="technical skills">
