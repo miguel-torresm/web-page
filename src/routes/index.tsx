@@ -1,10 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import portrait from "@/assets/miguel-portrait.png";
 import {
   ArrowRight, Linkedin, Mail, Github, MapPin, GraduationCap, Trophy,
   LineChart, Map, Brain, Database, FileCode2, Languages, Building2,
-  Sparkles, BookOpen, ChevronRight,
+  Sparkles, BookOpen, ChevronRight, Sun, Moon,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
