@@ -234,19 +234,34 @@ function Research() {
   ];
   const projects = [
     {
-      title: "Spatial disaggregation of GDP and informality in Bogotá",
-      authors: "with E. F. Martínez-González and CIENFI · 2025 (work in progress).",
-      body: "We estimate Bogotá's GDP at a 450×450 m grid resolution by combining VIIRS nighttime radiance (Suomi-NPP, NOAA-20), TransMilenio mobility records, and census microdata, and use XGBoost and neural-network models to map informality at the neighborhood level.",
+      title: "Spatial Disaggregation of GDP and Informality in Bogotá",
+      authors: "with E. F. Martínez-González (CIENFI) · in progress.",
+      body: "Spatially disaggregates Bogotá's GDP using nighttime lights, DANE 2018 census data, and TransMilenio mobility data, and maps informality at fine resolution via XGBoost and neural-network classifiers.",
     },
     {
-      title: "Predicting urban expansion in Colombia, 2013–2025",
-      authors: "Single-authored, in progress.",
-      body: "I classify built-up extent across Colombian cities using Landsat 8 spectral indices (NDBI, NDVI, NDWI) processed in Google Earth Engine, and benchmark ensemble classifiers against k-NN and convolutional approaches to forecast short-run urbanization.",
+      title: "Gender Disparities in the Colombian Criminal Justice System",
+      authors: "Undergraduate thesis · supervised by E. F. Martínez-González and Daniel Mejía-Londoño.",
+      body: "Examines gender differences in criminal sentencing within Colombia's accusatory system, exploiting a natural experiment to identify disparities net of case characteristics and defendant histories.",
     },
     {
-      title: "Gender disparities in criminal specialization and sentencing in Colombia",
-      authors: "Undergraduate thesis, supervised by E. F. Martínez-González.",
-      body: "Using judicial microdata from Colombia's accusatory system, I estimate gender differences in criminal specialization patterns and in the severity of sentences across criminal categories, controlling for case characteristics and defendant histories.",
+      title: "Strategic Default in Credit Unions",
+      authors: "with E. F. Martínez-González · in progress.",
+      body: "Econometric analysis of strategic default behavior in Colombian credit unions, examining borrower incentives when multiple lending institutions are simultaneously available.",
+    },
+    {
+      title: "Sentencing Process Analysis in the Colombian Accusatory System",
+      authors: "with E. F. Martínez-González and Daniel Mejía-Londoño · in progress.",
+      body: "Examines the full criminal-justice pipeline from criminal notice to final ruling, identifying procedural bottlenecks and sentencing disparities along the process.",
+    },
+    {
+      title: "Construction of Economic Centres in Cali",
+      authors: "with Cámara de Comercio de Cali and Invest Pacific · in progress.",
+      body: "Delineates Cali's economic subcenters by sector using georeferenced firm-level data and a spatial activity index.",
+    },
+    {
+      title: "Urbanization Prediction Model for Colombia, 2013–2025",
+      authors: "CIENFI · in progress.",
+      body: "Integrates Landsat 8 spectral indices (NDBI, NDVI, NDWI) with DANE 2018 census blocks and benchmarks k-NN and XGBoost classifiers to predict urban extent across Colombia.",
     },
   ];
   return (
