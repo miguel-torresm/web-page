@@ -28,6 +28,7 @@ function Landing() {
       <Nav />
       <main className="flex-1">
         <About />
+        <Education />
         <News />
         <Research />
         <Teaching />
@@ -68,6 +69,7 @@ function ThemeToggle() {
 function Nav() {
   const links = [
     ["About", "#about"],
+    ["Education", "#education"],
     ["News", "#news"],
     ["Research", "#research"],
     ["Teaching", "#teaching"],
@@ -156,6 +158,39 @@ Cali, Colombia`}
         </div>
       </div>
     </section>
+  );
+}
+
+function Education() {
+  const items = [
+    {
+      school: "Universidad Icesi",
+      degree: "B.A. in Economics · GPA 4.5/5.0",
+      detail: "Graduate-level coursework: Quantitative and Computational Methods (4.8), Advanced Macroeconomics (in progress).",
+      term: "Expected 2027",
+    },
+    {
+      school: "Berchmans School, Cali",
+      degree: "High School Diploma (Bachiller)",
+      detail: "",
+      term: "2022",
+    },
+  ];
+  return (
+    <SectionBlock id="education" title="education">
+      <ul className="divide-y divide-border/70">
+        {items.map((it) => (
+          <li key={it.school} className="py-4 grid md:grid-cols-[1fr_auto] gap-1 md:gap-8">
+            <div>
+              <div className="font-serif text-[1.05rem] text-foreground">{it.school}</div>
+              <div className="text-sm text-muted-foreground">{it.degree}</div>
+              {it.detail && <div className="text-sm text-foreground/80 mt-1">{it.detail}</div>}
+            </div>
+            <div className="font-mono text-xs text-muted-foreground md:text-right md:pt-1.5">{it.term}</div>
+          </li>
+        ))}
+      </ul>
+    </SectionBlock>
   );
 }
 
