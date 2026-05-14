@@ -102,7 +102,7 @@ function About() {
           Miguel Ángel <span className="text-primary">Torres Montoya</span>
         </h1>
         <p className="text-muted-foreground text-lg">
-          <a href="https://www.icesi.edu.co/departamentos/economia/" target="_blank" rel="noreferrer" className="text-primary hover:underline">Department of Economics</a>,{" "}
+          <a href="https://www.icesi.edu.co/facultad-negocios-economia/" target="_blank" rel="noreferrer" className="text-primary hover:underline">Faculty of Business and Economics</a>,{" "}
           <a href="https://www.icesi.edu.co" target="_blank" rel="noreferrer" className="text-primary hover:underline">Universidad Icesi</a>.
         </p>
 
