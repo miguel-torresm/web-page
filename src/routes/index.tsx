@@ -338,10 +338,11 @@ function Teaching() {
 
 function Tools() {
   const groups = [
-    { label: "Programming", items: ["R (advanced)", "Python", "LaTeX", "Git"] },
-    { label: "Geospatial", items: ["Google Earth Engine", "rgee", "QGIS", "Landsat 8", "VIIRS (Suomi-NPP / NOAA-20)"] },
-    { label: "Methods", items: ["Causal inference", "XGBoost", "k-NN", "Neural networks", "Spatial econometrics"] },
-    { label: "Languages", items: ["Spanish (native)", "English (C1)"] },
+    { label: "Programming", items: ["R (advanced)", "Python (intermediate)"] },
+    { label: "Geospatial", items: ["Google Earth Engine (rgee)", "QGIS"] },
+    { label: "Methods", items: ["XGBoost", "k-NN", "Neural networks", "Spatial econometrics", "Remote sensing", "Statistical modeling", "Data visualization"] },
+    { label: "Other tools", items: ["LaTeX", "Git", "Excel (advanced)", "PowerPoint", "Canva"] },
+    { label: "Languages", items: ["Spanish (native)", "English — Professional Working Proficiency (C1)"] },
   ];
   return (
     <SectionBlock id="skills" title="technical skills">
