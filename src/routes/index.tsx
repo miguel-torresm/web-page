@@ -2,18 +2,16 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import portrait from "@/assets/miguel-portrait.png";
 import {
-  ArrowRight, Linkedin, Mail, Github, MapPin, GraduationCap, Trophy,
-  LineChart, Map, Brain, Database, FileCode2, Languages, Building2,
-  Sparkles, BookOpen, ChevronRight, Sun, Moon,
+  Mail, Github, Linkedin, FileText, Sun, Moon, ExternalLink,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Miguel Ángel Torres Montoya — Economics Researcher" },
-      { name: "description", content: "Undergraduate economics researcher. Crime economics, urban economics, applied econometrics, spatial analysis and machine learning. CIENFI, Universidad Icesi." },
-      { property: "og:title", content: "Miguel Ángel Torres Montoya — Economics Researcher" },
-      { property: "og:description", content: "Crime economics · Urban economics · Applied econometrics · Spatial analysis." },
+      { title: "Miguel Ángel Torres Montoya — Economics" },
+      { name: "description", content: "Undergraduate researcher in economics at Universidad Icesi (CIENFI). Urban and crime economics, applied econometrics, spatial analysis and machine learning." },
+      { property: "og:title", content: "Miguel Ángel Torres Montoya — Economics" },
+      { property: "og:description", content: "Undergraduate researcher in economics. Urban and crime economics, applied econometrics, spatial analysis." },
     ],
   }),
   component: Landing,
@@ -22,33 +20,20 @@ export const Route = createFileRoute("/")({
 const LINKEDIN = "https://www.linkedin.com/in/miguel-angel-torres-montoya-economics/";
 const EMAIL = "miguet2209@gmail.com";
 const GITHUB = "https://github.com/Miguet2209";
-
-function useReveal() {
-  useEffect(() => {
-    const els = document.querySelectorAll(".reveal");
-    const io = new IntersectionObserver(
-      (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add("in")),
-      { threshold: 0.12 },
-    );
-    els.forEach((el) => io.observe(el));
-    return () => io.disconnect();
-  }, []);
-}
+const CV_URL = "/cv.pdf";
 
 function Landing() {
-  useReveal();
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen flex flex-col">
       <Nav />
-      <Hero />
-      <About />
-      <Value />
-      <Expertise />
-      <Experience />
-      <Tools />
-      <Approach />
-      <Signature />
-      <Contact />
+      <main className="flex-1">
+        <About />
+        <News />
+        <Research />
+        <Teaching />
+        <Tools />
+        <Contact />
+      </main>
       <Footer />
     </div>
   );
@@ -67,439 +52,348 @@ function ThemeToggle() {
     document.documentElement.classList.toggle("light", next === "light");
     localStorage.setItem("theme", next);
   };
+  const Icon = theme === "dark" ? Moon : Sun;
   return (
     <button
       onClick={toggle}
       aria-label="Toggle theme"
-      className="inline-flex items-center justify-center size-9 rounded-full border border-border/60 text-muted-foreground hover:text-foreground hover:border-primary/50 transition"
+      className="inline-flex items-center gap-2 h-9 px-3 rounded-md border border-border text-sm text-muted-foreground hover:text-foreground hover:border-primary/60 transition"
     >
-      {theme === "dark" ? <Sun className="size-4" /> : <Moon className="size-4" />}
+      <Icon className="size-4" />
+      <span className="hidden sm:inline">{theme === "dark" ? "Dark mode" : "Light mode"}</span>
     </button>
   );
 }
 
 function Nav() {
   const links = [
-    ["About", "#about"], ["Expertise", "#expertise"],
-    ["Experience", "#experience"], ["Research", "#research"], ["Contact", "#contact"],
+    ["About", "#about"],
+    ["News", "#news"],
+    ["Research", "#research"],
+    ["Teaching", "#teaching"],
+    ["CV", CV_URL],
   ] as const;
   return (
-    <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-background/70 border-b border-border/50">
-      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <a href="#top" className="font-serif text-lg tracking-tight">
-          Miguel <span className="text-gradient-gold">Torres</span>
+    <header className="sticky top-0 z-50 backdrop-blur-md bg-background/85 border-b border-border/60">
+      <div className="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+        <a href="#about" className="font-serif text-base tracking-tight">
+          Miguel Á. <span className="text-primary">Torres Montoya</span>
         </a>
-        <nav className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
+        <nav className="hidden md:flex items-center gap-7 text-sm text-muted-foreground">
           {links.map(([l, h]) => (
-            <a key={h} href={h} className="hover:text-foreground transition-colors">{l}</a>
+            <a key={l} href={h} className="hover:text-foreground transition-colors" target={h.startsWith("/") ? "_blank" : undefined} rel={h.startsWith("/") ? "noreferrer" : undefined}>
+              {l}
+            </a>
           ))}
         </nav>
-        <div className="flex items-center gap-3">
-          <ThemeToggle />
-          <a href={LINKEDIN} target="_blank" rel="noreferrer"
-             className="hidden sm:inline-flex items-center gap-2 text-sm font-medium px-4 py-2 rounded-full bg-primary text-primary-foreground hover:opacity-90 transition shadow-gold">
-            <Linkedin className="size-4" /> Connect
-          </a>
-        </div>
+        <ThemeToggle />
       </div>
     </header>
   );
 }
 
-function Hero() {
+function About() {
   return (
-    <section id="top" className="relative pt-32 pb-24 overflow-hidden">
-      <div className="absolute inset-0 grid-paper opacity-40 pointer-events-none" />
-      <div className="max-w-6xl mx-auto px-6 grid lg:grid-cols-12 gap-12 items-center relative">
-        <div className="lg:col-span-7 reveal">
-          <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-primary mb-6">
-            <span className="size-1.5 rounded-full bg-primary" />
-            Economics Research · Cali, Colombia
-          </div>
-          <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl leading-[1.05] mb-6">
-            Turning <span className="text-gradient-gold italic">spatial data</span> into
-            evidence on cities, crime and inequality.
-          </h1>
-          <p className="text-lg text-muted-foreground max-w-xl mb-8 leading-relaxed">
-            Undergraduate researcher at CIENFI, Universidad Icesi. I build econometric and
-            machine-learning pipelines that disaggregate economic activity, predict urban
-            growth, and surface inequities in Latin American institutions.
-          </p>
-          <div className="flex flex-wrap gap-3 mb-10">
-            <a href={LINKEDIN} target="_blank" rel="noreferrer"
-               className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground font-medium hover:opacity-90 transition shadow-gold">
-              <Linkedin className="size-4" /> Connect on LinkedIn
-            </a>
-            <a href="#experience"
-               className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-border hover:border-primary/60 hover:bg-card transition">
-              View Experience <ArrowRight className="size-4" />
-            </a>
-          </div>
-          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
-            {["Crime Economics", "Urban Economics", "Applied Econometrics", "Remote Sensing"].map((t) => (
-              <span key={t} className="flex items-center gap-2">
-                <span className="size-1 rounded-full bg-primary" />{t}
-              </span>
-            ))}
-          </div>
-        </div>
+    <section id="about" className="pt-16 pb-14 px-6 scroll-mt-20">
+      <div className="max-w-5xl mx-auto">
+        <h1 className="font-serif text-4xl md:text-5xl leading-tight mb-2">
+          Miguel Ángel <span className="text-primary">Torres Montoya</span>
+        </h1>
+        <p className="text-muted-foreground text-lg">
+          <a href="https://www.icesi.edu.co/departamentos/economia/" target="_blank" rel="noreferrer" className="text-primary hover:underline">Department of Economics</a>,{" "}
+          <a href="https://www.icesi.edu.co" target="_blank" rel="noreferrer" className="text-primary hover:underline">Universidad Icesi</a>.
+        </p>
 
-        <div className="lg:col-span-5 reveal">
-          <div className="relative max-w-sm mx-auto">
-            <div className="absolute -inset-4 rounded-3xl bg-gradient-to-br from-primary/30 to-transparent blur-2xl" />
-            <div className="relative rounded-3xl bg-card border border-border p-6 shadow-elegant">
-              <div className="aspect-square rounded-2xl overflow-hidden ring-1 ring-primary/30 mb-5">
-                <img src={portrait} alt="Miguel Ángel Torres Montoya"
-                     className="w-full h-full object-cover" />
-              </div>
-              <div className="space-y-1">
-                <div className="font-serif text-xl">Miguel Ángel Torres Montoya</div>
-                <div className="text-sm text-primary">Research Assistant · CIENFI</div>
-                <div className="text-xs text-muted-foreground pt-3 flex items-center gap-1.5">
-                  <MapPin className="size-3" /> Cali · Available for remote collaboration
-                </div>
-              </div>
+        <div className="mt-10 grid md:grid-cols-[1fr_auto] gap-12 items-start">
+          <div className="space-y-5 text-[1.02rem] leading-[1.75] text-foreground/85">
+            <div className="flex flex-wrap items-center gap-4 text-muted-foreground mb-2">
+              <a href={`mailto:${EMAIL}`} aria-label="Email" className="hover:text-primary transition"><Mail className="size-5" /></a>
+              <a href={LINKEDIN} target="_blank" rel="noreferrer" aria-label="LinkedIn" className="hover:text-primary transition"><Linkedin className="size-5" /></a>
+              <a href={GITHUB} target="_blank" rel="noreferrer" aria-label="GitHub" className="hover:text-primary transition"><Github className="size-5" /></a>
+              <a href={CV_URL} target="_blank" rel="noreferrer" aria-label="CV" className="hover:text-primary transition inline-flex items-center gap-1.5 text-sm">
+                <FileText className="size-5" /> <span className="underline-offset-4 hover:underline">CV</span>
+              </a>
             </div>
+
+            <p>
+              I am an undergraduate Research Assistant at the{" "}
+              <a href="https://www.icesi.edu.co/centros-academicos/cienfi" target="_blank" rel="noreferrer" className="text-primary hover:underline">
+                Center for Research in Economics and Finance (CIENFI)
+              </a>{" "}
+              and a senior economics student at Universidad Icesi, working under the supervision
+              of Eduard F. Martínez-González. My research lies at the intersection of urban
+              economics, the economics of crime, and applied econometrics, with an emphasis on
+              spatial methods and the use of satellite imagery and high-frequency administrative
+              data to study Latin American cities.
+            </p>
+            <p>
+              My current work develops machine-learning and remote-sensing pipelines to
+              disaggregate economic activity at fine spatial resolutions, predict urbanization
+              dynamics, and document inequities in the Colombian criminal justice system.
+              I have collaborated with the Secretaría Distrital de Desarrollo Económico de
+              Bogotá and the Alcaldía de Cali, producing evidence intended for both academic
+              audiences and public-policy decision making.
+            </p>
+            <p>
+              I am interested in pursuing graduate studies in economics. You can find a recent
+              copy of my CV{" "}
+              <a href={CV_URL} target="_blank" rel="noreferrer" className="text-primary hover:underline">here</a>.
+            </p>
           </div>
+
+          <aside className="md:w-64 mx-auto md:mx-0">
+            <div className="rounded-full overflow-hidden ring-1 ring-border w-44 h-44 md:w-56 md:h-56 mx-auto">
+              <img src={portrait} alt="Miguel Ángel Torres Montoya" className="w-full h-full object-cover" />
+            </div>
+            <div className="mt-5 font-mono text-xs leading-relaxed text-muted-foreground whitespace-pre-line text-center md:text-left">
+              {`B.A. in Economics (in progress)
+Department of Economics
+Universidad Icesi
+Cl. 18 #122-135, Pance
+Cali, Colombia`}
+            </div>
+          </aside>
         </div>
       </div>
     </section>
   );
 }
 
-function About() {
+function News() {
+  const items = [
+    {
+      date: "Feb 2025",
+      body: (
+        <>
+          Our work with CIENFI and the <em>Secretaría Distrital de Desarrollo Económico de Bogotá</em>{" "}
+          on the spatial disaggregation of Bogotá's GDP using nighttime lights (Suomi-NPP, NOAA-20)
+          and TransMilenio mobility data was featured in <em>El Tiempo</em>.
+        </>
+      ),
+    },
+    {
+      date: "2025",
+      body: (
+        <>
+          Awarded <strong>third place</strong> in the Undergraduate Paper Competition on the
+          Economics of Crime, Universidad Icesi.
+        </>
+      ),
+    },
+    {
+      date: "2025",
+      body: (
+        <>
+          Started as Teaching Monitor for <em>Introduction to Business Analytics</em> at Datacienfi,
+          curating an open data repository for undergraduate coursework.
+        </>
+      ),
+    },
+    {
+      date: "2024",
+      body: (
+        <>
+          Awarded <strong>second place</strong> in the <em>Who Wants to Be a Millionaire? — Economics
+          Edition</em>, Universidad Icesi.
+        </>
+      ),
+    },
+    {
+      date: "2023",
+      body: (
+        <>
+          Awarded <strong>first place</strong> in the Undergraduate Economic Debate Competition,
+          Universidad Icesi.
+        </>
+      ),
+    },
+  ];
   return (
-    <Section id="about" eyebrow="About" title="A researcher trained in evidence, not opinions.">
-      <div className="grid md:grid-cols-3 gap-8">
-        <div className="md:col-span-2 space-y-5 text-lg leading-relaxed text-muted-foreground reveal">
-          <p>
-            I'm an economics undergraduate at <span className="text-foreground">Universidad Icesi</span> and
-            research assistant at the Center for Research in Economics and Finance (CIENFI),
-            where I work alongside Eduard F. Martínez-González on urban and crime economics
-            for Colombian cities.
-          </p>
-          <p>
-            My work sits at the intersection of <span className="text-foreground">applied
-            econometrics, spatial analysis and machine learning</span> — combining satellite
-            imagery, census microdata and high-frequency mobility records to answer questions
-            that traditional aggregates can't.
-          </p>
-          <p>
-            I collaborate with public institutions such as the <span className="text-foreground">Secretaría
-            de Desarrollo Económico de Bogotá</span> and the <span className="text-foreground">Alcaldía
-            de Cali</span>, translating technical models into policy-ready evidence for Latin
-            American governments and academic audiences.
-          </p>
-        </div>
-        <div className="space-y-4 reveal">
-          {[
-            { icon: GraduationCap, label: "B.A. Economics", sub: "Universidad Icesi · Expected 2027" },
-            { icon: Building2, label: "CIENFI", sub: "Research Assistant, 2025–" },
-            { icon: Languages, label: "Spanish · English (C1)", sub: "Native · Professional working" },
-          ].map(({ icon: Icon, label, sub }) => (
-            <div key={label} className="rounded-2xl border border-border bg-card p-5 hover:border-primary/40 transition">
-              <Icon className="size-5 text-primary mb-3" />
-              <div className="font-medium">{label}</div>
-              <div className="text-sm text-muted-foreground">{sub}</div>
-            </div>
+    <SectionBlock id="news" title="news">
+      <ul className="divide-y divide-border/70">
+        {items.map((it, i) => (
+          <li key={i} className="py-4 grid grid-cols-[7rem_1fr] md:grid-cols-[9rem_1fr] gap-4 md:gap-8 items-baseline">
+            <span className="font-mono text-xs md:text-sm text-muted-foreground">{it.date}</span>
+            <p className="text-foreground/90 leading-relaxed">{it.body}</p>
+          </li>
+        ))}
+      </ul>
+    </SectionBlock>
+  );
+}
+
+function Research() {
+  const interests = [
+    "Urban Economics",
+    "Economics of Crime",
+    "Applied Econometrics",
+    "Spatial Econometrics",
+    "Development Economics",
+    "Machine Learning for Economic Measurement",
+    "Remote Sensing",
+  ];
+  const projects = [
+    {
+      title: "Spatial disaggregation of GDP and informality in Bogotá",
+      authors: "with E. F. Martínez-González and CIENFI · 2025 (work in progress).",
+      body: "We estimate Bogotá's GDP at a 450×450 m grid resolution by combining VIIRS nighttime radiance (Suomi-NPP, NOAA-20), TransMilenio mobility records, and census microdata, and use XGBoost and neural-network models to map informality at the neighborhood level.",
+    },
+    {
+      title: "Predicting urban expansion in Colombia, 2013–2025",
+      authors: "Single-authored, in progress.",
+      body: "I classify built-up extent across Colombian cities using Landsat 8 spectral indices (NDBI, NDVI, NDWI) processed in Google Earth Engine, and benchmark ensemble classifiers against k-NN and convolutional approaches to forecast short-run urbanization.",
+    },
+    {
+      title: "Gender disparities in criminal specialization and sentencing in Colombia",
+      authors: "Undergraduate thesis, supervised by E. F. Martínez-González.",
+      body: "Using judicial microdata from Colombia's accusatory system, I estimate gender differences in criminal specialization patterns and in the severity of sentences across criminal categories, controlling for case characteristics and defendant histories.",
+    },
+  ];
+  return (
+    <SectionBlock id="research" title="research">
+      <div className="mb-10">
+        <h3 className="font-serif text-lg mb-3">Interests</h3>
+        <div className="flex flex-wrap gap-x-2 gap-y-1.5 text-[0.95rem] text-muted-foreground">
+          {interests.map((t, i) => (
+            <span key={t}>
+              <span className="text-foreground/85">{t}</span>
+              {i < interests.length - 1 && <span className="text-border mx-1.5">·</span>}
+            </span>
           ))}
         </div>
       </div>
-    </Section>
-  );
-}
 
-function Value() {
-  const items = [
-    {
-      icon: Map,
-      title: "Spatial disaggregation at scale",
-      body: "I downscale national-level indicators to the neighborhood using nighttime lights, mobility records and census blocks — making local economic activity visible.",
-    },
-    {
-      icon: Brain,
-      title: "ML for economic measurement",
-      body: "XGBoost, k-NN and neural networks deployed to classify urban extent, predict informality and turn raw satellite signals into interpretable indicators.",
-    },
-    {
-      icon: LineChart,
-      title: "High-frequency indicators",
-      body: "Composite economic activity indices built from non-experimental data sources to track regional cycles in near real time.",
-    },
-    {
-      icon: BookOpen,
-      title: "Policy-relevant evidence",
-      body: "Research designed to be read by city governments and academic peers alike — featured in El Tiempo and used by Bogotá and Cali authorities.",
-    },
-  ];
-  return (
-    <Section id="value" eyebrow="How I create value" title="Four ways my research compounds.">
-      <div className="grid sm:grid-cols-2 gap-5">
-        {items.map(({ icon: Icon, title, body }) => (
-          <div key={title} className="reveal group rounded-2xl border border-border bg-card p-7 hover:border-primary/50 hover:-translate-y-1 transition-all duration-300 shadow-elegant">
-            <div className="size-11 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-5 group-hover:bg-primary group-hover:text-primary-foreground transition">
-              <Icon className="size-5" />
-            </div>
-            <h3 className="font-serif text-2xl mb-2">{title}</h3>
-            <p className="text-muted-foreground leading-relaxed">{body}</p>
-          </div>
+      <h3 className="font-serif text-lg mb-4">Working papers and projects in progress</h3>
+      <ol className="space-y-7 list-decimal list-outside pl-5 marker:text-muted-foreground marker:font-mono marker:text-sm">
+        {projects.map((p) => (
+          <li key={p.title} className="pl-1">
+            <div className="font-serif text-[1.1rem] leading-snug text-foreground">{p.title}</div>
+            <div className="text-sm text-muted-foreground italic mb-2">{p.authors}</div>
+            <p className="text-foreground/85 leading-relaxed">{p.body}</p>
+          </li>
         ))}
-      </div>
-    </Section>
+      </ol>
+    </SectionBlock>
   );
 }
 
-function Expertise() {
-  const groups = [
-    { label: "Research areas", tags: ["Crime Economics", "Urban Economics", "Applied Econometrics", "Spatial Econometrics", "Development Economics"] },
-    { label: "Methods", tags: ["Machine Learning", "XGBoost", "k-NN", "Neural Networks", "Remote Sensing", "Statistical Modeling", "Causal Inference"] },
-    { label: "Programming", tags: ["R (Advanced)", "Python", "LaTeX", "Git"] },
-    { label: "Geospatial", tags: ["Google Earth Engine", "rgee", "QGIS", "Landsat 8", "Suomi-NPP / NOAA-20"] },
-  ];
-  return (
-    <Section id="expertise" eyebrow="Core expertise" title="The toolkit behind the research.">
-      <div className="space-y-8">
-        {groups.map((g) => (
-          <div key={g.label} className="reveal">
-            <div className="text-sm uppercase tracking-[0.18em] text-primary mb-4">{g.label}</div>
-            <div className="flex flex-wrap gap-2">
-              {g.tags.map((t) => (
-                <span key={t} className="px-4 py-2 rounded-full bg-card border border-border text-sm hover:border-primary/60 hover:text-primary transition">
-                  {t}
-                </span>
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
-    </Section>
-  );
-}
-
-function Experience() {
-  const roles = [
+function Teaching() {
+  const courses = [
+    {
+      role: "Teaching Monitor",
+      course: "Introduction to Business Analytics",
+      org: "Datacienfi · Universidad Icesi",
+      term: "2025 — present",
+    },
     {
       role: "Research Assistant",
+      course: "Urban and Crime Economics",
       org: "CIENFI · Universidad Icesi",
-      place: "Cali, Colombia",
-      period: "2025 — Present",
-      focus: "Urban and crime economics, machine learning for economic measurement, satellite-based indicators of development.",
-      highlight: "Co-author of GDP spatial disaggregation for Bogotá — findings featured in El Tiempo, Feb. 2025.",
+      term: "2025 — present",
     },
     {
-      role: "Teaching Monitor — Intro to Business Analytics",
-      org: "Datacienfi · Universidad Icesi",
-      place: "Cali, Colombia",
-      period: "2025 — Present",
-      focus: "Curating an open data repository and supporting analytics coursework for undergraduates.",
-      highlight: "Designed reproducible R workflows used across business analytics sections.",
+      role: "Research Collaborator",
+      course: "Spatial GDP estimation project",
+      org: "Secretaría Distrital de Desarrollo Económico de Bogotá",
+      term: "2025",
     },
     {
-      role: "Research collaborator — Bogotá",
-      org: "Secretaría de Desarrollo Económico",
-      place: "Bogotá, Colombia",
-      period: "2025",
-      focus: "Built spatial GDP estimates from nighttime lights (Suomi-NPP, NOAA-20) and TransMilenio mobility data.",
-      highlight: "Mapped informality at the neighborhood level using XGBoost and neural networks.",
-    },
-    {
-      role: "Research collaborator — Cali",
+      role: "Research Collaborator",
+      course: "Property registry revaluation analysis",
       org: "Alcaldía de Cali",
-      place: "Cali, Colombia",
-      period: "2025",
-      focus: "Descriptive analysis of Cali's property registry revaluation (reavalúo catastral).",
-      highlight: "Synthesized property owner claims into actionable input for municipal review.",
+      term: "2025",
     },
-    {
-      role: "Undergraduate Thesis (in progress)",
-      org: "Supervised by Eduard F. Martínez-González",
-      place: "Universidad Icesi",
-      period: "2025 — 2027",
-      focus: "Gender disparities in criminal specialization and sentencing severity in Colombia's accusatory system.",
-      highlight: "Quantitative analysis of judicial microdata across criminal categories.",
-    },
-  ];
-  const honors = [
-    { place: "1st", text: "Undergraduate Economic Debate Competition, Universidad Icesi", year: "2023" },
-    { place: "2nd", text: "Who Wants to Be a Millionaire? — Economics Edition, Universidad Icesi", year: "2024" },
-    { place: "3rd", text: "Undergraduate Paper Competition on the Economics of Crime", year: "2025" },
   ];
   return (
-    <Section id="experience" eyebrow="Experience highlights" title="Selected research, teaching and collaborations.">
-      <div className="grid lg:grid-cols-3 gap-10">
-        <div className="lg:col-span-2 relative">
-          <div className="absolute left-3 top-2 bottom-2 w-px bg-border" />
-          <div className="space-y-8">
-            {roles.map((r) => (
-              <div key={r.role + r.period} className="reveal relative pl-10">
-                <div className="absolute left-0 top-2 size-6 rounded-full border border-primary/40 bg-background flex items-center justify-center">
-                  <span className="size-2 rounded-full bg-primary" />
-                </div>
-                <div className="rounded-2xl border border-border bg-card p-6 hover:border-primary/40 transition shadow-elegant">
-                  <div className="flex flex-wrap items-baseline justify-between gap-2 mb-1">
-                    <h3 className="font-serif text-xl">{r.role}</h3>
-                    <span className="text-xs uppercase tracking-wider text-primary">{r.period}</span>
-                  </div>
-                  <div className="text-sm text-muted-foreground mb-3">
-                    {r.org} · {r.place}
-                  </div>
-                  <p className="text-muted-foreground mb-3 leading-relaxed">{r.focus}</p>
-                  <div className="flex items-start gap-2 text-sm text-foreground/90 border-l-2 border-primary/60 pl-3">
-                    <Sparkles className="size-4 text-primary mt-0.5 shrink-0" />
-                    <span>{r.highlight}</span>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <aside className="reveal">
-          <div className="rounded-2xl border border-border bg-card p-6 sticky top-24">
-            <div className="flex items-center gap-2 text-primary mb-5">
-              <Trophy className="size-5" />
-              <h3 className="font-serif text-xl text-foreground">Awards & Honors</h3>
+    <SectionBlock id="teaching" title="teaching & academic service">
+      <ul className="divide-y divide-border/70">
+        {courses.map((c) => (
+          <li key={c.role + c.course} className="py-4 grid md:grid-cols-[1fr_auto] gap-1 md:gap-8">
+            <div>
+              <div className="font-serif text-[1.05rem] text-foreground">{c.course}</div>
+              <div className="text-sm text-muted-foreground">{c.role} · {c.org}</div>
             </div>
-            <ul className="space-y-5">
-              {honors.map((h) => (
-                <li key={h.text} className="flex gap-3">
-                  <span className="font-serif text-2xl text-gradient-gold leading-none w-10 shrink-0">{h.place}</span>
-                  <div>
-                    <div className="text-sm leading-snug">{h.text}</div>
-                    <div className="text-xs text-muted-foreground mt-1">{h.year}</div>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </aside>
-      </div>
-    </Section>
+            <div className="font-mono text-xs text-muted-foreground md:text-right md:pt-1.5">{c.term}</div>
+          </li>
+        ))}
+      </ul>
+    </SectionBlock>
   );
 }
 
 function Tools() {
-  const tools = [
-    "R", "Python", "Google Earth Engine", "rgee", "QGIS", "LaTeX",
-    "Git / GitHub", "XGBoost", "Excel", "PowerPoint", "Canva", "Landsat", "DANE Census",
+  const groups = [
+    { label: "Programming", items: ["R (advanced)", "Python", "LaTeX", "Git"] },
+    { label: "Geospatial", items: ["Google Earth Engine", "rgee", "QGIS", "Landsat 8", "VIIRS (Suomi-NPP / NOAA-20)"] },
+    { label: "Methods", items: ["Causal inference", "XGBoost", "k-NN", "Neural networks", "Spatial econometrics"] },
+    { label: "Languages", items: ["Spanish (native)", "English (C1)"] },
   ];
   return (
-    <Section id="tools" eyebrow="Tools & platforms" title="What I reach for daily.">
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 reveal">
-        {tools.map((t) => (
-          <div key={t} className="rounded-xl border border-border bg-card px-4 py-4 text-center text-sm hover:border-primary/50 hover:text-primary transition">
-            {t}
+    <SectionBlock id="skills" title="technical skills">
+      <dl className="grid sm:grid-cols-2 gap-x-10 gap-y-6">
+        {groups.map((g) => (
+          <div key={g.label} className="grid grid-cols-[7rem_1fr] gap-4 items-baseline">
+            <dt className="font-mono text-xs uppercase tracking-wider text-muted-foreground">{g.label}</dt>
+            <dd className="text-foreground/85 leading-relaxed">{g.items.join(", ")}.</dd>
           </div>
         ))}
-      </div>
-      <p className="reveal text-center mt-10 font-serif text-xl md:text-2xl text-muted-foreground italic max-w-2xl mx-auto">
-        "Software extracts the data. Economic theory turns it into <span className="text-gradient-gold not-italic">evidence.</span>"
-      </p>
-    </Section>
-  );
-}
-
-function Approach() {
-  const items = [
-    {
-      icon: Database,
-      title: "Spatial GDP & Informality",
-      body: "Disaggregating Bogotá's GDP using Suomi-NPP / NOAA-20 nighttime lights and TransMilenio mobility flows.",
-    },
-    {
-      icon: FileCode2,
-      title: "Urbanization Prediction",
-      body: "Classifying urban extent across Colombia (2013–2025) with Landsat 8 NDBI/NDVI/NDWI and ensemble models.",
-    },
-    {
-      icon: Brain,
-      title: "Crime & Gender",
-      body: "Quantifying gender differences in criminal specialization and sentencing within Colombia's accusatory system.",
-    },
-  ];
-  return (
-    <Section id="research" eyebrow="Research in progress" title="What I'm working on right now.">
-      <div className="grid md:grid-cols-3 gap-5">
-        {items.map(({ icon: Icon, title, body }) => (
-          <div key={title} className="reveal rounded-2xl border border-border bg-card p-7 hover:border-primary/50 transition group">
-            <Icon className="size-6 text-primary mb-4" />
-            <h3 className="font-serif text-xl mb-2">{title}</h3>
-            <p className="text-muted-foreground leading-relaxed text-sm">{body}</p>
-            <div className="mt-5 inline-flex items-center gap-1 text-xs uppercase tracking-wider text-primary opacity-0 group-hover:opacity-100 transition">
-              In development <ChevronRight className="size-3" />
-            </div>
-          </div>
-        ))}
-      </div>
-    </Section>
-  );
-}
-
-function Signature() {
-  return (
-    <section className="py-28 px-6">
-      <div className="max-w-5xl mx-auto rounded-3xl bg-signature border border-primary/20 p-10 md:p-16 text-center shadow-elegant reveal">
-        <div className="text-xs uppercase tracking-[0.25em] text-primary mb-6">Working philosophy</div>
-        <p className="font-serif text-3xl md:text-5xl leading-tight">
-          "Cities and institutions leave traces in data.
-          <br className="hidden md:block" />
-          My job is to <span className="text-gradient-gold italic">read them carefully</span>—
-          and turn them into evidence that holds."
-        </p>
-      </div>
-    </section>
+      </dl>
+    </SectionBlock>
   );
 }
 
 function Contact() {
   return (
-    <Section id="contact" eyebrow="Let's connect" title="Open to research collaborations and remote work.">
-      <div className="max-w-2xl mx-auto text-center reveal">
-        <p className="text-lg text-muted-foreground mb-10 leading-relaxed">
-          I welcome conversations with researchers, policy teams and academic programs across
-          Latin America and beyond — whether for collaborations, data partnerships, graduate
-          opportunities, or applied research projects.
-        </p>
-        <div className="flex flex-wrap gap-3 justify-center">
-          <a href={LINKEDIN} target="_blank" rel="noreferrer"
-             className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground font-medium hover:opacity-90 shadow-gold transition">
-            <Linkedin className="size-4" /> Connect on LinkedIn
+    <SectionBlock id="contact" title="contact">
+      <p className="text-foreground/85 leading-relaxed mb-5 max-w-2xl">
+        I welcome correspondence from researchers, faculty and graduate programs interested in
+        urban economics, the economics of crime, or applied spatial methods in Latin America.
+      </p>
+      <ul className="space-y-2 text-foreground/90">
+        <li className="flex items-center gap-3">
+          <Mail className="size-4 text-muted-foreground" />
+          <a href={`mailto:${EMAIL}`} className="hover:text-primary hover:underline">{EMAIL}</a>
+        </li>
+        <li className="flex items-center gap-3">
+          <Linkedin className="size-4 text-muted-foreground" />
+          <a href={LINKEDIN} target="_blank" rel="noreferrer" className="hover:text-primary hover:underline inline-flex items-center gap-1">
+            linkedin.com/in/miguel-angel-torres-montoya-economics <ExternalLink className="size-3" />
           </a>
-          <a href={`mailto:${EMAIL}`}
-             className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-border hover:border-primary/60 hover:bg-card transition">
-            <Mail className="size-4" /> {EMAIL}
+        </li>
+        <li className="flex items-center gap-3">
+          <Github className="size-4 text-muted-foreground" />
+          <a href={GITHUB} target="_blank" rel="noreferrer" className="hover:text-primary hover:underline inline-flex items-center gap-1">
+            github.com/Miguet2209 <ExternalLink className="size-3" />
           </a>
-          <a href={GITHUB} target="_blank" rel="noreferrer"
-             className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-border hover:border-primary/60 hover:bg-card transition">
-            <Github className="size-4" /> GitHub
+        </li>
+        <li className="flex items-center gap-3">
+          <FileText className="size-4 text-muted-foreground" />
+          <a href={CV_URL} target="_blank" rel="noreferrer" className="hover:text-primary hover:underline">
+            Curriculum Vitae (PDF)
           </a>
-        </div>
-      </div>
-    </Section>
+        </li>
+      </ul>
+    </SectionBlock>
   );
 }
 
 function Footer() {
   return (
-    <footer className="border-t border-border/50 py-10 px-6 mt-10">
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3 text-sm text-muted-foreground">
-        <div>© {new Date().getFullYear()} Miguel Ángel Torres Montoya</div>
-        <div>Cali, Colombia · Available for remote research collaboration</div>
+    <footer className="border-t border-border/60 py-8 px-6 mt-12">
+      <div className="max-w-5xl mx-auto text-center text-xs text-muted-foreground font-mono">
+        © {new Date().getFullYear()} Miguel Ángel Torres Montoya · Universidad Icesi · Cali, Colombia.
       </div>
     </footer>
   );
 }
 
-function Section({
-  id, eyebrow, title, children,
-}: { id: string; eyebrow: string; title: string; children: React.ReactNode }) {
+function SectionBlock({
+  id, title, children,
+}: { id: string; title: string; children: React.ReactNode }) {
   return (
-    <section id={id} className="py-24 px-6 scroll-mt-20">
-      <div className="max-w-6xl mx-auto">
-        <div className="mb-12 max-w-3xl reveal">
-          <div className="text-xs uppercase tracking-[0.25em] text-primary mb-4">{eyebrow}</div>
-          <h2 className="font-serif text-4xl md:text-5xl leading-tight">{title}</h2>
-        </div>
+    <section id={id} className="py-12 px-6 scroll-mt-20 border-t border-border/50">
+      <div className="max-w-5xl mx-auto">
+        <h2 className="font-serif text-2xl md:text-3xl text-primary lowercase mb-7">{title}</h2>
         {children}
       </div>
     </section>
