@@ -28,6 +28,7 @@ function Landing() {
       <Nav />
       <main className="flex-1">
         <About />
+        <Education />
         <News />
         <Research />
         <Teaching />
