@@ -143,7 +143,7 @@ function About() {
 
           <aside className="md:w-64 mx-auto md:mx-0">
             <div className="rounded-full overflow-hidden ring-1 ring-border w-44 h-44 md:w-56 md:h-56 mx-auto">
-              <img src={portrait} alt="Miguel Ángel Torres Montoya" className="w-full h-full object-cover" />
+              <img src={portrait} alt="Miguel Ángel Torres Montoya" className="w-full h-full object-cover object-[50%_25%]" />
             </div>
             <div className="mt-5 font-mono text-xs leading-relaxed text-muted-foreground whitespace-pre-line text-center md:text-left">
               {`B.A. in Economics (in progress)
@@ -162,10 +162,10 @@ Cali, Colombia`}
 function News() {
   const items = [
     {
-      date: "Feb 2025",
+      date: "2025",
       body: (
         <>
-          Our work with CIENFI and the <em>Secretaría Distrital de Desarrollo Económico de Bogotá</em>{" "}
+          Our work with CIENFI and the <em>Secretaría de Desarrollo Económico de Bogotá</em>{" "}
           on the spatial disaggregation of Bogotá's GDP using nighttime lights (Suomi-NPP, NOAA-20)
           and TransMilenio mobility data was featured in <em>El Tiempo</em>.
         </>
@@ -175,7 +175,7 @@ function News() {
       date: "2025",
       body: (
         <>
-          Awarded <strong>third place</strong> in the Undergraduate Paper Competition on the
+          Awarded <strong>third place</strong> in the Undergraduate Presentation Competition on the
           Economics of Crime, Universidad Icesi.
         </>
       ),
