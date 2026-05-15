@@ -95,11 +95,17 @@ export function Footer() {
 }
 
 export function SectionBlock({
-  id, title, children, bordered = true,
-}: { id?: string; title: string; children: React.ReactNode; bordered?: boolean }) {
+  id, title, eyebrow, children, bordered = true,
+}: { id?: string; title: string; eyebrow?: string; children: React.ReactNode; bordered?: boolean }) {
   return (
-    <section id={id} className={`py-12 px-6 scroll-mt-20 ${bordered ? "border-t border-border/50" : ""}`}>
+    <section id={id} className={`py-14 px-6 scroll-mt-20 ${bordered ? "border-t border-border/50" : ""}`}>
       <div className="max-w-5xl mx-auto">
+        <div className="mb-8 flex items-center gap-3">
+          <span className="font-mono text-[0.7rem] uppercase tracking-[0.18em] text-muted-foreground">
+            {eyebrow ?? `§ ${title}`}
+          </span>
+          <span className="h-px flex-1 bg-gradient-to-r from-primary/50 via-border to-transparent" />
+        </div>
         <h2 className="font-serif text-2xl md:text-3xl text-primary lowercase mb-7">{title}</h2>
         {children}
       </div>
