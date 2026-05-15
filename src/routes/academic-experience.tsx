@@ -30,10 +30,11 @@ function AcademicExperiencePage() {
   return (
     <PageShell>
       <SectionBlock title="academic experience" bordered={false}>
-        <ul className="divide-y divide-border/70">
+        <ul className="divide-y divide-border/60">
           {courses.map((c) => (
-            <li key={c.role + c.course} className="py-4 grid md:grid-cols-[1fr_auto] gap-1 md:gap-8">
-              <div>
+            <li key={c.role + c.course} className="group py-5 grid md:grid-cols-[1fr_auto] gap-1 md:gap-8 transition-colors hover:bg-muted/20 -mx-4 px-4 rounded-md">
+              <div className="relative">
+                <span className="hidden md:block absolute -left-4 top-1.5 h-5 w-0.5 bg-primary/0 group-hover:bg-primary transition-colors" />
                 <div className="font-serif text-[1.05rem] text-foreground">{c.course}</div>
                 <div className="text-sm text-muted-foreground">{c.role} · {c.org}</div>
               </div>
@@ -44,10 +45,10 @@ function AcademicExperiencePage() {
       </SectionBlock>
 
       <SectionBlock title="technical skills">
-        <dl className="grid sm:grid-cols-2 gap-x-10 gap-y-6">
+        <dl className="grid sm:grid-cols-2 gap-x-10 gap-y-7">
           {groups.map((g) => (
-            <div key={g.label} className="grid grid-cols-[7rem_1fr] gap-4 items-baseline">
-              <dt className="font-mono text-xs uppercase tracking-wider text-muted-foreground">{g.label}</dt>
+            <div key={g.label} className="border-l border-border/60 pl-4 hover:border-primary/60 transition-colors">
+              <dt className="font-mono text-[0.7rem] uppercase tracking-[0.18em] text-muted-foreground mb-1.5">{g.label}</dt>
               <dd className="text-foreground/85 leading-relaxed">{g.items.join(", ")}.</dd>
             </div>
           ))}

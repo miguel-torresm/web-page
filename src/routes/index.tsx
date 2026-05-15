@@ -110,10 +110,11 @@ function Education() {
   ];
   return (
     <SectionBlock id="education" title="education">
-      <ul className="divide-y divide-border/70">
+      <ul className="divide-y divide-border/60">
         {items.map((it) => (
-          <li key={it.school} className="py-4 grid md:grid-cols-[1fr_auto] gap-1 md:gap-8">
-            <div>
+          <li key={it.school} className="group py-5 grid md:grid-cols-[1fr_auto] gap-1 md:gap-8 transition-colors hover:bg-muted/20 -mx-4 px-4 rounded-md">
+            <div className="relative">
+              <span className="hidden md:block absolute -left-4 top-1.5 h-5 w-0.5 bg-primary/0 group-hover:bg-primary transition-colors" />
               <div className="font-serif text-[1.05rem] text-foreground">{it.school}</div>
               <div className="text-sm text-muted-foreground">{it.degree}</div>
               {it.detail && <div className="text-sm text-foreground/80 mt-1">{it.detail}</div>}
@@ -127,7 +128,7 @@ function Education() {
 }
 
 function News() {
-  const items = [
+  const items: { date: string; body: React.ReactNode }[] = [
     { date: "2025", body: (<>Our work with CIENFI and the <em>Secretaría de Desarrollo Económico de Bogotá</em> on the spatial disaggregation of Bogotá's GDP using nighttime lights (Suomi-NPP, NOAA-20) and TransMilenio mobility data was featured in <em>El Tiempo</em>.</>) },
     { date: "2025", body: (<>Awarded <strong>third place</strong> in the Undergraduate Presentation Competition on the Economics of Crime, Universidad Icesi.</>) },
     { date: "2025", body: (<>Started as Teaching Monitor for <em>Introduction to Business Analytics</em> at Datacienfi, curating an open data repository for undergraduate coursework.</>) },
@@ -136,14 +137,18 @@ function News() {
   ];
   return (
     <SectionBlock id="news" title="news">
-      <ul className="divide-y divide-border/70">
+      <ol className="relative border-l border-border/60 ml-3 space-y-6">
         {items.map((it, i) => (
-          <li key={i} className="py-4 grid grid-cols-[7rem_1fr] md:grid-cols-[9rem_1fr] gap-4 md:gap-8 items-baseline">
-            <span className="font-mono text-xs md:text-sm text-muted-foreground">{it.date}</span>
+          <li key={i} className="relative pl-6">
+            <span className="absolute -left-[5px] top-2 size-2 rounded-full bg-primary shadow-[0_0_10px_var(--color-primary)]" />
+            <div className="flex items-baseline gap-3 mb-1">
+              <span className="font-mono text-[0.7rem] uppercase tracking-[0.18em] text-muted-foreground">{it.date}</span>
+              <span className="h-px flex-1 bg-border/40" />
+            </div>
             <p className="text-foreground/90 leading-relaxed">{it.body}</p>
           </li>
         ))}
-      </ul>
+      </ol>
     </SectionBlock>
   );
 }
