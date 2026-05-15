@@ -41,26 +41,41 @@ export function Nav() {
     { label: "Academic Experience", to: "/academic-experience" },
   ] as const;
   return (
-    <header className="sticky top-0 z-50 backdrop-blur-md bg-background/85 border-b border-border/60">
-      <div className="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between gap-4">
-        <Link to="/" className="font-serif text-base tracking-tight whitespace-nowrap">
+    <header className="sticky top-0 z-50 backdrop-blur-md bg-background/80 border-b border-border/60">
+      <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between gap-4">
+        <Link to="/" className="group font-serif text-base tracking-tight whitespace-nowrap flex items-center gap-2">
+          <span className="inline-block size-2 rounded-full bg-primary shadow-[0_0_12px_var(--color-primary)] group-hover:scale-110 transition-transform" />
           Miguel Á. <span className="text-primary">Torres Montoya</span>
         </Link>
-        <nav className="hidden md:flex items-center gap-7 text-sm text-muted-foreground">
+        <nav className="hidden md:flex items-center gap-1 text-sm">
           {internal.map((l) => {
             const active = pathname === l.to;
             return (
               <Link
                 key={l.to}
                 to={l.to}
-                className={`transition-colors ${active ? "text-foreground" : "hover:text-foreground"}`}
+                className={`relative px-3 py-2 rounded-md transition-colors ${
+                  active
+                    ? "text-foreground"
+                    : "text-muted-foreground hover:text-foreground hover:bg-muted/40"
+                }`}
               >
                 {l.label}
+                <span
+                  className={`pointer-events-none absolute left-3 right-3 -bottom-0.5 h-px origin-left bg-gradient-to-r from-primary via-gold to-transparent transition-transform duration-300 ${
+                    active ? "scale-x-100" : "scale-x-0"
+                  }`}
+                />
               </Link>
             );
           })}
-          <a href={CV_URL} target="_blank" rel="noreferrer" className="hover:text-foreground transition-colors">
-            CV
+          <a
+            href={CV_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="ml-2 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-primary/40 text-foreground text-xs font-mono uppercase tracking-wider hover:bg-primary/10 hover:border-primary transition-colors"
+          >
+            CV ↗
           </a>
         </nav>
         <ThemeToggle />
