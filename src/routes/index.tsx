@@ -110,10 +110,11 @@ function Education() {
   ];
   return (
     <SectionBlock id="education" title="education">
-      <ul className="divide-y divide-border/70">
+      <ul className="divide-y divide-border/60">
         {items.map((it) => (
-          <li key={it.school} className="py-4 grid md:grid-cols-[1fr_auto] gap-1 md:gap-8">
-            <div>
+          <li key={it.school} className="group py-5 grid md:grid-cols-[1fr_auto] gap-1 md:gap-8 transition-colors hover:bg-muted/20 -mx-4 px-4 rounded-md">
+            <div className="relative">
+              <span className="hidden md:block absolute -left-4 top-1.5 h-5 w-0.5 bg-primary/0 group-hover:bg-primary transition-colors" />
               <div className="font-serif text-[1.05rem] text-foreground">{it.school}</div>
               <div className="text-sm text-muted-foreground">{it.degree}</div>
               {it.detail && <div className="text-sm text-foreground/80 mt-1">{it.detail}</div>}
