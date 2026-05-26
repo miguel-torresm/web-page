@@ -15,13 +15,10 @@ export const Route = createFileRoute("/research")({
 
 function ResearchPage() {
   const interests = [
+    "Crime Economics",
     "Urban Economics",
-    "Economics of Crime",
     "Applied Econometrics",
-    "Spatial Econometrics",
-    "Development Economics",
-    "Machine Learning for Economic Measurement",
-    "Remote Sensing",
+    "Spatial Methods",
   ];
   const projects = [
     { title: "Spatial Disaggregation of GDP and Informality in Bogotá", authors: "with E. F. Martínez-González (CIENFI) · in progress.", body: "Spatially disaggregates Bogotá's GDP using nighttime lights, DANE 2018 census data, and mobility data, and maps informality at fine resolution via XGBoost and neural-network classifiers." },
