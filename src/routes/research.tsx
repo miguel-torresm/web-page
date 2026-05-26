@@ -24,12 +24,10 @@ function ResearchPage() {
     "Remote Sensing",
   ];
   const projects = [
-    { title: "Spatial Disaggregation of GDP and Informality in Bogotá", authors: "with E. F. Martínez-González (CIENFI) · in progress.", body: "Spatially disaggregates Bogotá's GDP using nighttime lights, DANE 2018 census data, and TransMilenio mobility data, and maps informality at fine resolution via XGBoost and neural-network classifiers." },
+    { title: "Spatial Disaggregation of GDP and Informality in Bogotá", authors: "with E. F. Martínez-González (CIENFI) · in progress.", body: "Spatially disaggregates Bogotá's GDP using nighttime lights, DANE 2018 census data, and mobility data, and maps informality at fine resolution via XGBoost and neural-network classifiers." },
     { title: "Gender Disparities in the Colombian Criminal Justice System", authors: "Undergraduate thesis · supervised by E. F. Martínez-González and Daniel Mejía-Londoño.", body: "Examines gender differences in criminal sentencing within Colombia's accusatory system, exploiting a natural experiment to identify disparities net of case characteristics and defendant histories." },
-    { title: "Strategic Default in Credit Unions", authors: "with E. F. Martínez-González · in progress.", body: "Econometric analysis of strategic default behavior in Colombian credit unions, examining borrower incentives when multiple lending institutions are simultaneously available." },
-    { title: "Sentencing Process Analysis in the Colombian Accusatory System", authors: "with E. F. Martínez-González and Daniel Mejía-Londoño · in progress.", body: "Examines the full criminal-justice pipeline from criminal notice to final ruling, identifying procedural bottlenecks and sentencing disparities along the process." },
+    { title: "Sentencing Process Analysis in the Colombian Accusatory System", authors: "with E. F. Martínez-González and Daniel Mejía-Londoño · in progress.", body: "Examines the full criminal-justice pipeline from criminal notice to final court ruling, identifying procedural bottlenecks and sentencing disparities along the process." },
     { title: "Construction of Economic Centres in Cali", authors: "with Cámara de Comercio de Cali and Invest Pacific · in progress.", body: "Delineates Cali's economic subcenters by sector using georeferenced firm-level data and a spatial activity index." },
-    { title: "Urbanization Prediction Model for Colombia, 2013–2025", authors: "CIENFI · in progress.", body: "Integrates Landsat 8 spectral indices (NDBI, NDVI, NDWI) with DANE 2018 census blocks and benchmarks k-NN and XGBoost classifiers to predict urban extent across Colombia." },
   ];
   return (
     <PageShell>

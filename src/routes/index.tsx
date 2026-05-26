@@ -102,6 +102,12 @@ function Education() {
       term: "Expected 2027",
     },
     {
+      school: "Universidad del Rosario, Bogotá",
+      degree: "Bogotá Summer School in Economics",
+      detail: "Real Analysis (in progress).",
+      term: "2026",
+    },
+    {
       school: "Berchmans School, Cali",
       degree: "High School Diploma (Bachiller)",
       detail: "",
