@@ -15,15 +15,18 @@ export const Route = createFileRoute("/academic-experience")({
 
 function AcademicExperiencePage() {
   const courses = [
-    { role: "Teaching Monitor", course: "Introduction to Business Analytics", org: "Datacienfi · Universidad Icesi", term: "2025 — present" },
-    { role: "Research Assistant", course: "Urban and Crime Economics", org: "CIENFI · Universidad Icesi", term: "2025 — present" },
-    { role: "Research Collaborator", course: "Spatial GDP estimation project", org: "Secretaría Distrital de Desarrollo Económico de Bogotá", term: "2025" },
-    { role: "Research Collaborator", course: "Property registry revaluation analysis", org: "Alcaldía de Cali", term: "2025" },
+    { role: "Research Assistant", course: "Center for Research in Economics and Finance (CIENFI)", org: "Universidad Icesi · supervisor: Eduard F. Martínez-González", term: "2025 — present" },
+    { role: "Teaching Monitor", course: "Introduction to Business Analytics", org: "Universidad Icesi", term: "2025 — present" },
+    { role: "Research Collaborator", course: "Spatial Disaggregation of GDP for Bogotá", org: "Secretaría Distrital de Desarrollo Económico de Bogotá", term: "2025" },
+    { role: "Research Collaborator", course: "Property Registry Revaluation Analysis", org: "Alcaldía de Cali", term: "2025" },
+  ];
+  const training = [
+    { course: "Evaluating Impact in Low- and Middle-Income Countries", org: "World Bank Group · via edX", detail: "In progress.", term: "2026" },
   ];
   const groups = [
     { label: "Programming", items: ["R (advanced)", "Python (intermediate)"] },
     { label: "Geospatial", items: ["Google Earth Engine (rgee)", "QGIS"] },
-    { label: "Methods", items: ["XGBoost", "k-NN", "Neural networks", "Spatial econometrics", "Remote sensing", "Statistical modeling", "Data visualization"] },
+    { label: "Methods", items: ["Machine learning (XGBoost, k-NN, neural networks)", "Spatial econometrics", "Remote sensing", "Statistical modeling", "Data visualization"] },
     { label: "Other tools", items: ["LaTeX", "Git", "Excel (advanced)", "PowerPoint", "Canva"] },
     { label: "Languages", items: ["Spanish (native)", "English — Professional Working Proficiency (C1)"] },
   ];
@@ -39,6 +42,22 @@ function AcademicExperiencePage() {
                 <div className="text-sm text-muted-foreground">{c.role} · {c.org}</div>
               </div>
               <div className="font-mono text-xs text-muted-foreground md:text-right md:pt-1.5">{c.term}</div>
+            </li>
+          ))}
+        </ul>
+      </SectionBlock>
+
+      <SectionBlock title="additional training">
+        <ul className="divide-y divide-border/60">
+          {training.map((t) => (
+            <li key={t.course} className="group py-5 grid md:grid-cols-[1fr_auto] gap-1 md:gap-8 transition-colors hover:bg-muted/20 -mx-4 px-4 rounded-md">
+              <div className="relative">
+                <span className="hidden md:block absolute -left-4 top-1.5 h-5 w-0.5 bg-primary/0 group-hover:bg-primary transition-colors" />
+                <div className="font-serif text-[1.05rem] text-foreground">{t.course}</div>
+                <div className="text-sm text-muted-foreground">{t.org}</div>
+                {t.detail && <div className="text-sm text-foreground/80 mt-1">{t.detail}</div>}
+              </div>
+              <div className="font-mono text-xs text-muted-foreground md:text-right md:pt-1.5">{t.term}</div>
             </li>
           ))}
         </ul>
