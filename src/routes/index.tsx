@@ -62,11 +62,11 @@ function About() {
             </p>
             <p>
               My current work develops machine-learning and remote-sensing pipelines to
-              disaggregate economic activity at fine spatial resolutions, predict urbanization
-              dynamics, and document inequities in the Colombian criminal justice system.
-              I have collaborated with the Secretaría Distrital de Desarrollo Económico de
-              Bogotá and the Alcaldía de Cali, producing evidence intended for both academic
-              audiences and public-policy decision making.
+              disaggregate economic activity at fine spatial resolutions and to document
+              inequities in the Colombian criminal justice system. I have collaborated with
+              the Secretaría Distrital de Desarrollo Económico de Bogotá and the Alcaldía
+              de Cali, producing evidence intended for both academic audiences and
+              public-policy decision making.
             </p>
             <p>
               I am interested in pursuing graduate studies in economics. You can find a recent
