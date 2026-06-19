@@ -132,31 +132,6 @@ function Education() {
   );
 }
 
-function News() {
-  const items: { date: string; body: React.ReactNode }[] = [
-    { date: "2025", body: (<>Our work with CIENFI and the <em>Secretaría de Desarrollo Económico de Bogotá</em> on the spatial disaggregation of Bogotá's GDP using nighttime lights (Suomi-NPP, NOAA-20) and TransMilenio mobility data was featured in <em>El Tiempo</em>.</>) },
-    { date: "2025", body: (<>Awarded <strong>third place</strong> in the Undergraduate Presentation Competition on the Economics of Crime, Universidad Icesi.</>) },
-    { date: "2025", body: (<>Started as Teaching Monitor for <em>Introduction to Business Analytics</em> at Datacienfi, curating an open data repository for undergraduate coursework.</>) },
-    { date: "2024", body: (<>Awarded <strong>second place</strong> in the <em>Who Wants to Be a Millionaire? — Economics Edition</em>, Universidad Icesi.</>) },
-    { date: "2023", body: (<>Awarded <strong>first place</strong> in the Undergraduate Economic Debate Competition, Universidad Icesi.</>) },
-  ];
-  return (
-    <SectionBlock id="news" title="news">
-      <ol className="relative border-l border-border/60 ml-3 space-y-6">
-        {items.map((it, i) => (
-          <li key={i} className="relative pl-6">
-            <span className="absolute -left-[5px] top-2 size-2 rounded-full bg-primary shadow-[0_0_10px_var(--color-primary)]" />
-            <div className="flex items-baseline gap-3 mb-1">
-              <span className="font-mono text-[0.7rem] uppercase tracking-[0.18em] text-muted-foreground">{it.date}</span>
-              <span className="h-px flex-1 bg-border/40" />
-            </div>
-            <p className="text-foreground/90 leading-relaxed">{it.body}</p>
-          </li>
-        ))}
-      </ol>
-    </SectionBlock>
-  );
-}
 
 function Contact() {
   return (
