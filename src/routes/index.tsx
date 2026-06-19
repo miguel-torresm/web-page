@@ -98,7 +98,7 @@ function Education() {
     {
       school: "Universidad Icesi",
       degree: "B.A. in Economics · GPA 4.5/5.0",
-      detail: "Graduate-level coursework: Quantitative and Computational Methods (4.8), Advanced Macroeconomics (in progress).",
+      detail: "Graduate-level coursework: Quantitative and Computational Methods (4.8), Advanced Macroeconomics (4.8), Advanced Microeconomics (in progress), Game Theory and Asymmetric Information (in progress), Advanced Econometrics (in progress).",
       term: "Expected 2027",
     },
     {
