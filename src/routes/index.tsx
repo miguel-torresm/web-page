@@ -20,7 +20,6 @@ function HomePage() {
     <PageShell>
       <About />
       <Education />
-      <News />
       <Contact />
     </PageShell>
   );
