@@ -15,17 +15,17 @@ export const Route = createFileRoute("/academic-experience")({
 
 function AcademicExperiencePage() {
   const research = [
-    { role: "Research Assistant", org: "Center for Research in Economics and Finance (CIENFI), Universidad Icesi", supervisor: "Eduard F. Martínez-González", term: "2025 — present", detail: "Projects: Spatial Disaggregation of GDP for Bogotá (with the Secretaría de Desarrollo Económico de Bogotá), Property Registry Revaluation Analysis for Cali (with the Alcaldía de Cali), and Datacienfi (open data repository for Business Analytics courses)." },
-    { role: "Research Assistant", org: "Center for Economic Development Studies (CEDE), Universidad de los Andes", supervisor: "Daniel Mejía-Londoño", term: "2026 — present", detail: "" },
+    { role: "Research Assistant", org: "Center for Research in Economics and Finance (CIENFI), Universidad Icesi", supervisor: "Eduard F. Martínez-González", term: "2025 — present", detail: "Projects: Spatial Disaggregation of GDP for Bogotá — nighttime lights (Suomi-NPP, NOAA-20), TransMilenio mobility data and the DANE 2018 census, with the Secretaría de Desarrollo Económico de Bogotá; findings featured in El Tiempo, 2025. Property Registry Revaluation Analysis for Cali — descriptive analysis of the reavalúo catastral and property owner claims, with the Alcaldía de Cali." },
+    { role: "Research Leader — Economic Research", org: "Finance & Investment Club (FIC), Universidad Icesi", supervisor: null, term: "2026 — present", detail: "Causal Inference Workshop — Instructor. Designed and delivered a workshop on causal inference, covering core methods and applied examples.", link: { href: SLIDES_CAUSAL_INFERENCE, label: "Workshop slides ↗" } },
   ];
   const teaching = [
     { course: "Introduction to Business Analytics", org: "Universidad Icesi", term: "2025 — present" },
     { course: "Microeconomic Theory III", org: "Universidad Icesi", term: "2026 — present" },
     { course: "International Economics", org: "Universidad Icesi", term: "2026 — present" },
+    { course: "Macroeconomic Theory I", org: "Universidad Icesi", term: "2026 — present" },
   ];
   const awards = [
     { title: "3rd Place, Undergraduate Presentation Competition on the Economics of Crime", org: "Universidad Icesi", year: "2025" },
-    { title: "2nd Place, \"Who Wants to Be a Millionaire?\" — Economics Edition", org: "Universidad Icesi", year: "2024" },
     { title: "1st Place, Undergraduate Economic Debate Competition", org: "Universidad Icesi", year: "2023" },
   ];
   const training = [
