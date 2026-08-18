@@ -1,6 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageShell, SectionBlock } from "@/components/site";
 
+const SLIDES_CAUSAL_INFERENCE =
+  "https://www.dropbox.com/scl/fi/tsqbz0wtf5tor7yje0sew/workshop_inferencia_causal.pptx?rlkey=9saxxf2nwz9dezci5yp9b13e0&st=ym4azy6v&dl=0";
+
 export const Route = createFileRoute("/academic-experience")({
   head: () => ({
     meta: [
