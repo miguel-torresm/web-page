@@ -50,8 +50,21 @@ function AcademicExperiencePage() {
               <div className="relative">
                 <span className="hidden md:block absolute -left-4 top-1.5 h-5 w-0.5 bg-primary/0 group-hover:bg-primary transition-colors" />
                 <div className="font-serif text-[1.05rem] text-foreground">{r.org}</div>
-                <div className="text-sm text-muted-foreground">{r.role} · supervisor: {r.supervisor}</div>
+                <div className="text-sm text-muted-foreground">
+                  {r.role}
+                  {r.supervisor ? ` · supervisor: ${r.supervisor}` : ""}
+                </div>
                 {r.detail && <div className="text-sm text-foreground/80 mt-1">{r.detail}</div>}
+                {"link" in r && r.link && (
+                  <a
+                    href={r.link.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-2 inline-flex items-center gap-1 font-mono text-[0.7rem] uppercase tracking-[0.14em] text-primary hover:underline"
+                  >
+                    {r.link.label}
+                  </a>
+                )}
               </div>
               <div className="font-mono text-xs text-muted-foreground md:text-right md:pt-1.5">{r.term}</div>
             </li>
