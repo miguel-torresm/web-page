@@ -16,16 +16,14 @@ export const Route = createFileRoute("/research")({
 function ResearchPage() {
   const interests = [
     "Crime Economics",
-    "Behavioural Economics",
-    "Microeconomics",
     "Applied Econometrics",
-    "Political Economy",
+    "Education Economics",
+    "Causal Inference",
   ];
   const projects = [
-    { title: "Spatial Disaggregation of GDP for Bogotá", authors: "with E. F. Martínez-González (CIENFI) and the Secretaría de Desarrollo Económico de Bogotá · in progress.", body: "Spatially disaggregates Bogotá's GDP using nighttime lights (Suomi-NPP, NOAA-20), DANE 2018 census data, and TransMilenio mobility data. Findings featured in El Tiempo, February 2025." },
-    { title: "Gender Disparities in the Colombian Criminal Justice System", authors: "Undergraduate thesis · supervised by E. F. Martínez-González and Daniel Mejía-Londoño.", body: "Examines gender differences in criminal sentencing within Colombia's accusatory system, exploiting a natural experiment to identify disparities net of case characteristics and defendant histories." },
-    { title: "Sentencing Process Analysis in the Colombian Accusatory System", authors: "with E. F. Martínez-González and Daniel Mejía-Londoño · in progress.", body: "Examines the full criminal-justice pipeline from criminal notice to final court ruling, identifying procedural bottlenecks and sentencing disparities along the process." },
-    { title: "Construction of Economic Centres in Cali", authors: "with Cámara de Comercio de Cali and Invest Pacific · in progress.", body: "Delineates Cali's economic subcenters by sector using georeferenced firm-level data and a spatial activity index." },
+    { title: "Gender Disparities in the Colombian Criminal Justice System", authors: "Undergraduate thesis · supervised by Eduard F. Martínez-González and Daniel Mejía-Londoño.", body: "Examines gender differences in criminal sentencing within Colombia's accusatory system, exploiting a natural experiment." },
+    { title: "Sentencing Process Analysis in the Colombian Accusatory System", authors: "with Eduard F. Martínez-González and Daniel Mejía-Londoño.", body: "Examines the full criminal-justice pipeline from criminal notice to final court ruling, identifying procedural bottlenecks and sentencing disparities." },
+    { title: "State Capacity and Education Policy Implementation in Colombia", authors: "Finance and Investment Club (FIC) — Economic Research.", body: "Examines whether local institutional capacity determines the effect of the full-school-day reform on the public–private achievement gap." },
   ];
   return (
     <PageShell>

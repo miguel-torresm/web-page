@@ -103,7 +103,7 @@ function Education() {
     {
       school: "Universidad del Rosario, Bogotá",
       degree: "Bogotá Summer School in Economics",
-      detail: "Real Analysis (in progress).",
+      detail: "Real Analysis, Bogotá Summer School in Economics (4.7/5.0).",
       term: "2026",
     },
     {
