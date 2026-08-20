@@ -113,6 +113,16 @@ function AcademicExperiencePage() {
                 <div className="font-serif text-[1.05rem] text-foreground">{t.course}</div>
                 <div className="text-sm text-muted-foreground">{t.org}</div>
                 {t.detail && <div className="text-sm text-foreground/80 mt-1">{t.detail}</div>}
+                {t.link && (
+                  <a
+                    href={t.link.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-2 inline-flex items-center gap-1 font-mono text-[0.7rem] uppercase tracking-[0.14em] text-primary hover:underline"
+                  >
+                    {t.link.label}
+                  </a>
+                )}
               </div>
               <div className="font-mono text-xs text-muted-foreground md:text-right md:pt-1.5">{t.term}</div>
             </li>
