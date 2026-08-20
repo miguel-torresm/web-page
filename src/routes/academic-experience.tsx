@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageShell, SectionBlock } from "@/components/site";
 
+const CERTIFICATE_IEM01X = "https://courses.edx.org/certificates/394dc8c9c5b1481bb28bcd3eb8a6a856";
 const SLIDES_CAUSAL_INFERENCE =
   "https://www.dropbox.com/scl/fi/tsqbz0wtf5tor7yje0sew/workshop_inferencia_causal.pptx?rlkey=9saxxf2nwz9dezci5yp9b13e0&st=ym4azy6v&dl=0";
 
@@ -32,8 +33,9 @@ function AcademicExperiencePage() {
     { title: "1st Place, Undergraduate Economic Debate Competition", org: "Universidad Icesi", year: "2023" },
   ];
   const training = [
-    { course: "Evaluating Impact in Low- and Middle-Income Countries", org: "World Bank Group · via edX", detail: "In progress.", term: "2026" },
+    { course: "IEM01x: Evaluating Impact in Low- and Middle-Income Countries", org: "World Bank Group · via edX", detail: null, term: "2026", link: { href: CERTIFICATE_IEM01X, label: "Certificate ↗" } },
   ];
+
   const groups = [
     { label: "Programming", items: ["R (advanced)", "Python (intermediate)"] },
     { label: "Geospatial", items: ["Google Earth Engine (rgee)", "QGIS"] },
@@ -111,6 +113,16 @@ function AcademicExperiencePage() {
                 <div className="font-serif text-[1.05rem] text-foreground">{t.course}</div>
                 <div className="text-sm text-muted-foreground">{t.org}</div>
                 {t.detail && <div className="text-sm text-foreground/80 mt-1">{t.detail}</div>}
+                {t.link && (
+                  <a
+                    href={t.link.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-2 inline-flex items-center gap-1 font-mono text-[0.7rem] uppercase tracking-[0.14em] text-primary hover:underline"
+                  >
+                    {t.link.label}
+                  </a>
+                )}
               </div>
               <div className="font-mono text-xs text-muted-foreground md:text-right md:pt-1.5">{t.term}</div>
             </li>
