@@ -32,8 +32,9 @@ function AcademicExperiencePage() {
     { title: "1st Place, Undergraduate Economic Debate Competition", org: "Universidad Icesi", year: "2023" },
   ];
   const training = [
-    { course: "Evaluating Impact in Low- and Middle-Income Countries", org: "World Bank Group · via edX", detail: "In progress.", term: "2026" },
+    { course: "IEM01x: Evaluating Impact in Low- and Middle-Income Countries", org: "World Bank Group · via edX", detail: null, term: "2026", link: { href: CERTIFICATE_IEM01X, label: "Certificate ↗" } },
   ];
+
   const groups = [
     { label: "Programming", items: ["R (advanced)", "Python (intermediate)"] },
     { label: "Geospatial", items: ["Google Earth Engine (rgee)", "QGIS"] },
