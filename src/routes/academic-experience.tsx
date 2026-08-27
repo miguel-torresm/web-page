@@ -1,5 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageShell, SectionBlock } from "@/components/site";
+import certificateAsset from "@/assets/iem01x-certificate.png.asset.json";
+
 
 const CERTIFICATE_IEM01X = "https://courses.edx.org/certificates/394dc8c9c5b1481bb28bcd3eb8a6a856";
 const SLIDES_CAUSAL_INFERENCE =
