@@ -127,7 +127,23 @@ function AcademicExperiencePage() {
                     {t.link.label}
                   </a>
                 )}
+                {t.link && (
+                  <a
+                    href={t.link.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-4 block max-w-lg overflow-hidden rounded-md border border-border/70 bg-card shadow-sm transition-all hover:border-primary/60 hover:shadow-md"
+                  >
+                    <img
+                      src={certificateAsset.url}
+                      alt="edX verified certificate for IEM01x: Evaluating Impact in Low- and Middle-Income Countries, issued to Miguel Ángel Torres Montoya by the World Bank Group"
+                      loading="lazy"
+                      className="w-full"
+                    />
+                  </a>
+                )}
               </div>
+
               <div className="font-mono text-xs text-muted-foreground md:text-right md:pt-1.5">{t.term}</div>
             </li>
           ))}
