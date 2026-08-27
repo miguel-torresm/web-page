@@ -43,7 +43,7 @@ function AcademicExperiencePage() {
   const groups = [
     { label: "Programming", items: ["R (advanced)", "Python (intermediate)"] },
     { label: "Geospatial", items: ["Google Earth Engine (rgee)", "QGIS"] },
-    { label: "Methods", items: ["Machine learning (XGBoost, k-NN, neural networks)", "Spatial econometrics", "Remote sensing", "Statistical modeling", "Data visualization"] },
+    { label: "Methods", items: ["Machine learning (XGBoost, k-NN, neural networks)", "Causal inference (RCT, DiD, RDD)", "Spatial econometrics", "Remote sensing", "Statistical modeling", "Data visualization"] },
     { label: "Other tools", items: ["LaTeX", "Git", "Excel (advanced)", "PowerPoint", "Canva"] },
     { label: "Languages", items: ["Spanish (native)", "English — Professional Working Proficiency (C1)"] },
   ];
