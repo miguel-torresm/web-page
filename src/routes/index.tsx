@@ -56,15 +56,15 @@ function About() {
               and a senior economics student at Universidad Icesi, working under the supervision
               of Eduard F. Martínez-González. My research centers on the construction and
               estimation of theoretical models, applied econometrics, and causal inference,
-              with a particular interest in the economics of crime and urban economics in
+              with a particular interest in the economics of crime and education policy in
               Latin America.
             </p>
             <p>
-              I work with high-frequency administrative data, spatial methods, and
-              machine-learning tools to test micro-founded hypotheses about criminal justice
-              outcomes, local labor markets, and education policy. My current projects
-              include the analysis of sentencing disparities in Colombia's accusatory system
-              and the evaluation of state-capacity constraints on education policy implementation.
+              I work with administrative data and econometric methods to test micro-founded
+              hypotheses about criminal justice outcomes and education policy. My current
+              projects include the analysis of sentencing disparities in Colombia's accusatory
+              system and the evaluation of state-capacity constraints on education policy
+              implementation.
             </p>
             <p>
               I am interested in pursuing graduate studies in economics. You can find a recent

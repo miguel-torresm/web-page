@@ -22,8 +22,8 @@ function ResearchPage() {
     "Education Economics",
   ];
   const projects = [
-    { title: "Gender Disparities in the Colombian Criminal Justice System", authors: "Undergraduate thesis · supervised by Eduard F. Martínez-González and Daniel Mejía-Londoño.", body: "Examines gender differences in criminal sentencing within Colombia's accusatory system, exploiting a natural experiment." },
-    { title: "Sentencing Process Analysis in the Colombian Accusatory System", authors: "with Eduard F. Martínez-González and Daniel Mejía-Londoño.", body: "Examines the full criminal-justice pipeline from criminal notice to final court ruling, identifying procedural bottlenecks and sentencing disparities." },
+    { title: "Gender Disparities in the Colombian Criminal Justice System", authors: "Undergraduate thesis · supervised by Eduard F. Martínez-González and Daniel Mejía-Londoño.", body: "Examines gender differences in criminal sentencing within Colombia's accusatory system, exploiting a natural experiment and applying causal inference methods." },
+    { title: "Sentencing Process Analysis in the Colombian Accusatory System", authors: "with Eduard F. Martínez-González and Daniel Mejía-Londoño.", body: "Examines the full criminal-justice pipeline from criminal notice to final court ruling, identifying procedural bottlenecks and sentencing disparities using econometric tools." },
     { title: "State Capacity and Education Policy Implementation in Colombia", authors: "Finance and Investment Club (FIC) — Economic Research.", body: "Examines whether local institutional capacity determines the effect of the full-school-day reform on the public–private achievement gap." },
   ];
   return (
