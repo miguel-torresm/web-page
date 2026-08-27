@@ -21,7 +21,7 @@ export const Route = createFileRoute("/academic-experience")({
 
 function AcademicExperiencePage() {
   const research = [
-    { role: "Research Assistant", org: "Center for Research in Economics and Finance (CIENFI), Universidad Icesi", supervisor: "Eduard F. Martínez-González", term: "2025 — present", detail: "Projects: Spatial Disaggregation of GDP for Bogotá — nighttime lights (Suomi-NPP, NOAA-20), TransMilenio mobility data and the DANE 2018 census, with the Secretaría de Desarrollo Económico de Bogotá; findings featured in El Tiempo, 2025. Property Registry Revaluation Analysis for Cali — descriptive analysis of the reavalúo catastral and property owner claims, with the Alcaldía de Cali." },
+    { role: "Research Assistant", org: "Center for Research in Economics and Finance (CIENFI), Universidad Icesi", supervisor: "Eduard F. Martínez-González", term: "2025 — present", detail: "Projects: analysis of sentencing disparities in Colombia's accusatory system; state capacity and education policy implementation. Applied econometric and causal inference methods to administrative judicial and education data." },
     { role: "Research Leader — Economic Research", org: "Finance & Investment Club (FIC), Universidad Icesi", supervisor: null, term: "2026 — present", detail: "Causal Inference Workshop — Instructor. Designed and delivered a workshop on causal inference, covering core methods and applied examples.", link: { href: SLIDES_CAUSAL_INFERENCE, label: "Workshop slides ↗" } },
   ];
   const teaching = [
@@ -41,10 +41,9 @@ function AcademicExperiencePage() {
   ];
 
   const groups = [
-    { label: "Programming", items: ["R (advanced)", "Python (intermediate)"] },
-    { label: "Geospatial", items: ["Google Earth Engine (rgee)", "QGIS"] },
-    { label: "Methods", items: ["Machine learning (XGBoost, k-NN, neural networks)", "Causal inference (RCT, DiD, RDD)", "Spatial econometrics", "Remote sensing", "Statistical modeling", "Data visualization"] },
-    { label: "Other tools", items: ["LaTeX", "Git", "Excel (advanced)", "PowerPoint", "Canva"] },
+    { label: "Programming", items: ["R (advanced)", "Python (intermediate)", "Stata"] },
+    { label: "Econometrics & methods", items: ["Causal inference (RCT, DiD, RDD, IV)", "Applied econometrics", "Statistical modeling", "Data visualization"] },
+    { label: "Other tools", items: ["LaTeX", "Git", "Excel (advanced)", "PowerPoint"] },
     { label: "Languages", items: ["Spanish (native)", "English — Professional Working Proficiency (C1)"] },
   ];
   return (
