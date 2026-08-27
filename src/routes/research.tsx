@@ -5,9 +5,9 @@ export const Route = createFileRoute("/research")({
   head: () => ({
     meta: [
       { title: "Research — Miguel Ángel Torres Montoya" },
-      { name: "description", content: "Working papers and projects in progress on urban economics, the economics of crime, applied econometrics, and remote sensing." },
+      { name: "description", content: "Working papers and projects in progress on theoretical models, applied econometrics, causal inference, and the economics of crime." },
       { property: "og:title", content: "Research — Miguel Ángel Torres Montoya" },
-      { property: "og:description", content: "Working papers and projects on urban and crime economics, applied econometrics, and remote sensing." },
+      { property: "og:description", content: "Working papers and projects on theoretical models, applied econometrics, causal inference, and the economics of crime." },
     ],
   }),
   component: ResearchPage,
@@ -15,10 +15,11 @@ export const Route = createFileRoute("/research")({
 
 function ResearchPage() {
   const interests = [
-    "Crime Economics",
+    "Theoretical Models",
     "Applied Econometrics",
-    "Education Economics",
     "Causal Inference",
+    "Crime Economics",
+    "Education Economics",
   ];
   const projects = [
     { title: "Gender Disparities in the Colombian Criminal Justice System", authors: "Undergraduate thesis · supervised by Eduard F. Martínez-González and Daniel Mejía-Londoño.", body: "Examines gender differences in criminal sentencing within Colombia's accusatory system, exploiting a natural experiment." },
