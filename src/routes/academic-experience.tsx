@@ -29,7 +29,9 @@ function AcademicExperiencePage() {
     { course: "Microeconomic Theory III", org: "Universidad Icesi", term: "2026 — present" },
     { course: "International Economics", org: "Universidad Icesi", term: "2026 — present" },
     { course: "Macroeconomic Theory I", org: "Universidad Icesi", term: "2026 — present" },
+    { course: "Big Data and Machine Learning", org: "Universidad Icesi", term: "2026 — present" },
   ];
+
   const awards = [
     { title: "3rd Place, Undergraduate Presentation Competition on the Economics of Crime", org: "Universidad Icesi", year: "2025" },
     { title: "1st Place, Undergraduate Economic Debate Competition", org: "Universidad Icesi", year: "2023" },
