@@ -7,9 +7,9 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Miguel Ángel Torres Montoya — Economics" },
-      { name: "description", content: "Undergraduate researcher in economics at Universidad Icesi (CIENFI). Urban and crime economics, applied econometrics, spatial analysis." },
+      { name: "description", content: "Undergraduate researcher in economics at Universidad Icesi (CIENFI). Research interests: theoretical models, applied econometrics, causal inference, and the economics of crime." },
       { property: "og:title", content: "Miguel Ángel Torres Montoya — Economics" },
-      { property: "og:description", content: "Undergraduate researcher in economics. Urban and crime economics, applied econometrics, spatial analysis." },
+      { property: "og:description", content: "Undergraduate researcher in economics. Theoretical models, applied econometrics, causal inference, and the economics of crime." },
     ],
   }),
   component: HomePage,
@@ -54,18 +54,17 @@ function About() {
                 Center for Research in Economics and Finance (CIENFI)
               </a>{" "}
               and a senior economics student at Universidad Icesi, working under the supervision
-              of Eduard F. Martínez-González. My research lies at the intersection of urban
-              economics, the economics of crime, and applied econometrics, with an emphasis on
-              spatial methods and the use of satellite imagery and high-frequency administrative
-              data to study Latin American cities.
+              of Eduard F. Martínez-González. My research centers on the construction and
+              estimation of theoretical models, applied econometrics, and causal inference,
+              with a particular interest in the economics of crime and urban economics in
+              Latin America.
             </p>
             <p>
-              My current work develops machine-learning and remote-sensing pipelines to
-              disaggregate economic activity at fine spatial resolutions and to document
-              inequities in the Colombian criminal justice system. I have collaborated with
-              the Secretaría Distrital de Desarrollo Económico de Bogotá and the Alcaldía
-              de Cali, producing evidence intended for both academic audiences and
-              public-policy decision making.
+              I work with high-frequency administrative data, spatial methods, and
+              machine-learning tools to test micro-founded hypotheses about criminal justice
+              outcomes, local labor markets, and education policy. My current projects
+              include the analysis of sentencing disparities in Colombia's accusatory system
+              and the evaluation of state-capacity constraints on education policy implementation.
             </p>
             <p>
               I am interested in pursuing graduate studies in economics. You can find a recent
@@ -138,7 +137,8 @@ function Contact() {
     <SectionBlock id="contact" title="contact">
       <p className="text-foreground/85 leading-relaxed mb-5 max-w-2xl">
         I welcome correspondence from researchers, faculty and graduate programs interested in
-        urban economics, the economics of crime, or applied spatial methods in Latin America.
+        theoretical and empirical microeconomics, applied econometrics, causal inference, or
+        the economics of crime in Latin America.
       </p>
       <ul className="space-y-2 text-foreground/90">
         <li className="flex items-center gap-3">
