@@ -7,7 +7,7 @@ Site: https://miguel-torresm.github.io/web-page/
 
 ```
 public/            Files served as-is at the site root
-  profile/         cv.pdf, miguel-portrait.jpeg, iem01x-certificate.png
+  profile/         cv.pdf, miguel-portrait.jpeg
   articles/        Papers, articles, slides
 src/
   routes/          Pages (index, research, academic-experience)

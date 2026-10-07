@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { PageShell, SectionBlock, asset } from "@/components/site";
+import { PageShell, SectionBlock } from "@/components/site";
 
 
 const CERTIFICATE_IEM01X = "https://courses.edx.org/certificates/394dc8c9c5b1481bb28bcd3eb8a6a856";
@@ -137,21 +137,6 @@ function AcademicExperiencePage() {
                     className="mt-2 inline-flex items-center gap-1 font-mono text-[0.7rem] uppercase tracking-[0.14em] text-primary hover:underline"
                   >
                     {t.link.label}
-                  </a>
-                )}
-                {t.link && (
-                  <a
-                    href={t.link.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="mt-4 block max-w-lg overflow-hidden rounded-md border border-border/70 bg-card shadow-sm transition-all hover:border-primary/60 hover:shadow-md"
-                  >
-                    <img
-                      src={asset("profile/iem01x-certificate.png")}
-                      alt="edX verified certificate for IEM01x: Evaluating Impact in Low- and Middle-Income Countries, issued to Miguel Ángel Torres Montoya by the World Bank Group"
-                      loading="lazy"
-                      className="w-full"
-                    />
                   </a>
                 )}
               </div>
