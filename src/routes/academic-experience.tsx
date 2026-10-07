@@ -1,10 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { PageShell, SectionBlock } from "@/components/site";
+import { PageShell, SectionBlock, asset } from "@/components/site";
 
 
 const CERTIFICATE_IEM01X = "https://courses.edx.org/certificates/394dc8c9c5b1481bb28bcd3eb8a6a856";
-const SLIDES_CAUSAL_INFERENCE =
-  "https://www.dropbox.com/scl/fi/tsqbz0wtf5tor7yje0sew/workshop_inferencia_causal.pptx?rlkey=9saxxf2nwz9dezci5yp9b13e0&st=ym4azy6v&dl=0";
+const SLIDES_CAUSAL_INFERENCE = asset("articles/workshop_inferencia_causal.pptx");
 
 export const Route = createFileRoute("/academic-experience")({
   head: () => ({
@@ -34,8 +33,8 @@ function AcademicExperiencePage() {
   ];
 
   const awards = [
-    { title: "1st Place, Undergraduate Presentation Competition on Behavioral Economics", org: "Universidad Icesi", year: "2026", slides: "https://www.dropbox.com/scl/fi/j7xgw6evr9nw44ioe7ndx/ponencia_comportamiento.pdf?rlkey=uey1zowyid1yc64ml4pkye5hw&st=a97bq5iu&dl=0" },
-    { title: "3rd Place, Undergraduate Presentation Competition on the Economics of Crime", org: "Universidad Icesi", year: "2025", slides: "https://www.dropbox.com/scl/fi/npc9ubi9v1e5go47l1kh3/ponencia_crimen.pdf?rlkey=jrrr3og7kalw8mhwfmzpm5fog&st=u6hrgvrp&dl=0" },
+    { title: "1st Place, Undergraduate Presentation Competition on Behavioral Economics", org: "Universidad Icesi", year: "2026", slides: asset("articles/ponencia_comportamiento.pdf") },
+    { title: "3rd Place, Undergraduate Presentation Competition on the Economics of Crime", org: "Universidad Icesi", year: "2025", slides: asset("articles/ponencia_crimen.pdf") },
     { title: "1st Place, Undergraduate Economic Debate Competition", org: "Universidad Icesi", year: "2023" },
   ];
   const training = [
