@@ -14,6 +14,8 @@ export const Route = createFileRoute("/academic-experience")({
       { name: "description", content: "Teaching, research assistantships, technical skills, and academic collaborations." },
       { property: "og:title", content: "Academic Experience — Miguel Ángel Torres Montoya" },
       { property: "og:description", content: "Teaching, research assistantships, and technical skills." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
     ],
   }),
   component: AcademicExperiencePage,
@@ -21,19 +23,20 @@ export const Route = createFileRoute("/academic-experience")({
 
 function AcademicExperiencePage() {
   const research = [
-    { role: "Research Assistant", org: "Center for Research in Economics and Finance (CIENFI), Universidad Icesi", supervisor: "Eduard F. Martínez-González", term: "2025 — present", detail: "Projects: analysis of sentencing disparities in Colombia's accusatory system; state capacity and education policy implementation. Applied econometric and causal inference methods to administrative judicial and education data." },
-    { role: "Research Leader — Economic Research", org: "Finance & Investment Club (FIC), Universidad Icesi", supervisor: null, term: "2026 — present", detail: "Causal Inference Workshop — Instructor. Designed and delivered a workshop on causal inference, covering core methods and applied examples.", link: { href: SLIDES_CAUSAL_INFERENCE, label: "Workshop slides ↗" } },
+    { role: "Research Assistant", org: "Center for Research in Economics and Finance (CIENFI), Universidad Icesi", supervisor: "Eduard F. Martínez-González", term: "2025 — present", detail: "Research on criminal sentencing and education policy using econometric and causal inference methods. Additional projects include quarterly monitoring of economic activity in Bogotá and descriptive analysis of property owner claims following Cali's cadastral reassessment." },
+    { role: "Contributing Researcher — Research Seedbed", org: "Finance & Investment Club (FIC), Universidad Icesi", supervisor: null, term: "2026 — present", detail: "Contributing researcher in the club's newly founded research division. Designed and delivered a workshop on causal inference methods for undergraduate researchers.", link: { href: SLIDES_CAUSAL_INFERENCE, label: "Workshop slides ↗" } },
   ];
   const teaching = [
-    { course: "Introduction to Business Analytics", org: "Universidad Icesi", term: "2025 — present" },
+    { course: "Introduction to Business Analytics", org: "Universidad Icesi", term: "2025" },
     { course: "Microeconomic Theory III", org: "Universidad Icesi", term: "2026 — present" },
     { course: "International Economics", org: "Universidad Icesi", term: "2026 — present" },
     { course: "Macroeconomic Theory I", org: "Universidad Icesi", term: "2026 — present" },
-    { course: "Big Data and Machine Learning", org: "Universidad Icesi", term: "2026 — present" },
+    { course: "Big Data and Machine Learning", org: "Universidad Icesi · Graduate elective, M.A. in Economics", term: "2026" },
   ];
 
   const awards = [
-    { title: "3rd Place, Undergraduate Presentation Competition on the Economics of Crime", org: "Universidad Icesi", year: "2025" },
+    { title: "1st Place, Undergraduate Presentation Competition on Behavioral Economics", org: "Universidad Icesi", year: "2026", slides: "https://www.dropbox.com/scl/fi/j7xgw6evr9nw44ioe7ndx/ponencia_comportamiento.pdf?rlkey=uey1zowyid1yc64ml4pkye5hw&st=a97bq5iu&dl=0" },
+    { title: "3rd Place, Undergraduate Presentation Competition on the Economics of Crime", org: "Universidad Icesi", year: "2025", slides: "https://www.dropbox.com/scl/fi/npc9ubi9v1e5go47l1kh3/ponencia_crimen.pdf?rlkey=jrrr3og7kalw8mhwfmzpm5fog&st=u6hrgvrp&dl=0" },
     { title: "1st Place, Undergraduate Economic Debate Competition", org: "Universidad Icesi", year: "2023" },
   ];
   const training = [
@@ -41,9 +44,9 @@ function AcademicExperiencePage() {
   ];
 
   const groups = [
-    { label: "Programming", items: ["R (advanced)", "Python (intermediate)", "Stata"] },
+    { label: "Programming", items: ["R (advanced)", "Python (intermediate)"] },
     { label: "Econometrics & methods", items: ["Causal inference (RCT, DiD, RDD, IV)", "Applied econometrics", "Statistical modeling", "Data visualization"] },
-    { label: "Other tools", items: ["LaTeX", "Git", "Excel (advanced)", "PowerPoint"] },
+    { label: "Other tools", items: ["LaTeX", "Git", "Excel (advanced)", "PowerPoint", "Canva"] },
     { label: "Languages", items: ["Spanish (native)", "English — Professional Working Proficiency (C1)"] },
   ];
   return (
@@ -77,6 +80,16 @@ function AcademicExperiencePage() {
         </ul>
       </SectionBlock>
 
+      <SectionBlock title="research reports">
+        <article className="border-l border-border/60 pl-4">
+          <h3 className="font-serif text-lg text-foreground">Quarterly Monitoring of Economic Activity in Bogotá with Satellite and Mobility Data</h3>
+          <p className="mt-1 text-sm text-muted-foreground">With Eduard F. Martínez-González · February 2026</p>
+          <p className="mt-2 text-sm text-foreground/85">Cuadernos de Desarrollo Económico No. 83, Secretaría de Desarrollo Económico, Alcaldía Mayor de Bogotá.</p>
+          <p className="mt-2 text-sm text-foreground/85">Quarterly GDP estimation at the 450 m grid level using VIIRS night lights, TransMilenio mobility, and census data, with a feedforward neural network evaluated across approximately 16,000 model configurations using rolling-origin validation.</p>
+          <a href="https://observatorio.desarrolloeconomico.gov.co/wp-content/uploads/2026/02/cuaderno-83-ModePredigPIB.pdf" target="_blank" rel="noreferrer" className="mt-3 inline-flex font-mono text-xs text-primary hover:underline">Report ↗</a>
+        </article>
+      </SectionBlock>
+
       <SectionBlock title="teaching experience">
         <ul className="divide-y divide-border/60">
           {teaching.map((t) => (
@@ -100,6 +113,7 @@ function AcademicExperiencePage() {
                 <span className="hidden md:block absolute -left-4 top-1.5 h-5 w-0.5 bg-primary/0 group-hover:bg-primary transition-colors" />
                 <div className="font-serif text-[1.05rem] text-foreground">{a.title}</div>
                 <div className="text-sm text-muted-foreground">{a.org}</div>
+                {a.slides && <a href={a.slides} target="_blank" rel="noreferrer" className="mt-2 inline-flex font-mono text-xs text-primary hover:underline">Presentation slides ↗</a>}
               </div>
               <div className="font-mono text-xs text-muted-foreground md:text-right md:pt-1.5">{a.year}</div>
             </li>
