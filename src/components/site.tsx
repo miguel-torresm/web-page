@@ -39,13 +39,12 @@ export function Nav() {
   const internal = [
     { label: "About", to: "/" },
     { label: "Research", to: "/research" },
-    { label: "Academic Experience", to: "/academic-experience" },
+    { label: "Experience", to: "/academic-experience" },
   ] as const;
   return (
     <header className="sticky top-0 z-50 backdrop-blur-md bg-background/80 border-b border-border/60">
-      <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between gap-4">
-        <Link to="/" className="group font-serif text-base tracking-tight whitespace-nowrap flex items-center gap-2">
-          <span className="inline-block size-2 rounded-full bg-primary shadow-[0_0_12px_var(--color-primary)] group-hover:scale-110 transition-transform" />
+      <div className="max-w-3xl mx-auto px-6 h-14 flex items-center justify-between gap-4">
+        <Link to="/" className="font-serif text-base tracking-tight whitespace-nowrap">
           Miguel Á. <span className="text-primary">Torres Montoya</span>
         </Link>
         <nav className="hidden md:flex items-center gap-1 text-sm">
@@ -55,18 +54,13 @@ export function Nav() {
               <Link
                 key={l.to}
                 to={l.to}
-                className={`relative px-3 py-2 rounded-md transition-colors ${
+                className={`px-3 py-2 transition-colors ${
                   active
-                    ? "text-foreground"
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted/40"
+                    ? "text-foreground underline underline-offset-8 decoration-primary"
+                    : "text-muted-foreground hover:text-foreground"
                 }`}
               >
                 {l.label}
-                <span
-                  className={`pointer-events-none absolute left-3 right-3 -bottom-0.5 h-px origin-left bg-gradient-to-r from-primary via-gold to-transparent transition-transform duration-300 ${
-                    active ? "scale-x-100" : "scale-x-0"
-                  }`}
-                />
               </Link>
             );
           })}
@@ -74,9 +68,9 @@ export function Nav() {
             href={CV_URL}
             target="_blank"
             rel="noreferrer"
-            className="ml-2 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-primary/40 text-foreground text-xs font-mono uppercase tracking-wider hover:bg-primary/10 hover:border-primary transition-colors"
+            className="ml-2 px-3 py-2 text-muted-foreground hover:text-foreground transition-colors"
           >
-            CV ↗
+            CV
           </a>
         </nav>
         <ThemeToggle />
@@ -88,7 +82,7 @@ export function Nav() {
 export function Footer() {
   return (
     <footer className="border-t border-border/60 py-8 px-6 mt-12">
-      <div className="max-w-5xl mx-auto text-center text-xs text-muted-foreground font-mono">
+      <div className="max-w-3xl mx-auto text-center text-xs text-muted-foreground ">
         © {new Date().getFullYear()} Miguel Ángel Torres Montoya · Universidad Icesi · Cali, Colombia.
       </div>
     </footer>
@@ -96,21 +90,40 @@ export function Footer() {
 }
 
 export function SectionBlock({
-  id, title, eyebrow, children, bordered = true,
+  id, title, children, bordered = true,
 }: { id?: string; title: string; eyebrow?: string; children: React.ReactNode; bordered?: boolean }) {
   return (
-    <section id={id} className={`py-14 px-6 scroll-mt-20 ${bordered ? "border-t border-border/50" : ""}`}>
-      <div className="max-w-5xl mx-auto">
-        <div className="mb-8 flex items-center gap-3">
-          <span className="font-mono text-[0.7rem] uppercase tracking-[0.18em] text-muted-foreground">
-            {eyebrow ?? `§ ${title}`}
-          </span>
-          <span className="h-px flex-1 bg-gradient-to-r from-primary/50 via-border to-transparent" />
-        </div>
-        <h2 className="font-serif text-2xl md:text-3xl text-primary lowercase mb-7">{title}</h2>
+    <section id={id} className={`py-10 px-6 scroll-mt-20 ${bordered ? "border-t border-border/50" : ""}`}>
+      <div className="max-w-3xl mx-auto">
+        <h2 className="font-serif text-2xl text-foreground mb-5 capitalize">{title}</h2>
         {children}
       </div>
     </section>
+  );
+}
+
+type EntryLink = { href: string; label: string };
+
+/** One plain line of a CV-style list: title, optional subtitle/detail, date on the right. */
+export function Entry({
+  title, subtitle, detail, term, links,
+}: { title: string; subtitle?: string; detail?: string; term?: string; links?: EntryLink[] }) {
+  return (
+    <li className="py-3 grid sm:grid-cols-[1fr_auto] gap-1 sm:gap-8">
+      <div>
+        <div className="text-foreground">{title}</div>
+        {subtitle && <div className="text-sm text-muted-foreground">{subtitle}</div>}
+        {detail && <p className="text-sm text-foreground/80 mt-1 leading-relaxed">{detail}</p>}
+        {links && links.length > 0 && (
+          <div className="mt-1 flex flex-wrap gap-x-4 text-sm">
+            {links.map((l) => (
+              <a key={l.href} href={l.href} target="_blank" rel="noreferrer" className="text-primary hover:underline">{l.label}</a>
+            ))}
+          </div>
+        )}
+      </div>
+      {term && <div className="text-sm text-muted-foreground sm:text-right whitespace-nowrap">{term}</div>}
+    </li>
   );
 }
 

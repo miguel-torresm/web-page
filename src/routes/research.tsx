@@ -5,7 +5,7 @@ export const Route = createFileRoute("/research")({
   head: () => ({
     meta: [
       { title: "Research — Miguel Ángel Torres Montoya" },
-      { name: "description", content: "Working papers and projects in progress on theoretical models, applied econometrics, causal inference, and the economics of crime." },
+      { name: "description", content: "Published work and working papers on theoretical models, applied econometrics, causal inference, and the economics of crime." },
       { property: "og:title", content: "Research — Miguel Ángel Torres Montoya" },
       { property: "og:description", content: "Working papers and projects on theoretical models, applied econometrics, causal inference, and the economics of crime." },
       { property: "og:type", content: "website" },
@@ -29,41 +29,46 @@ function ResearchPage() {
     { title: "State Capacity and Education Policy Implementation in Colombia", authors: "Research in progress.", body: "Uses a staggered difference-in-differences design to examine whether local institutional capacity shapes the effect of the full-school-day reform on dropout." },
     { title: "Illicit Drugs in Colombia: The Limits of Eradication and the Tasks Ahead", authors: "with Juan David Gelvez (GIGA) and Eduard F. Martínez.", body: "Examines the cocaine value chain from coca leaf to the European retail market, showing why eradication targets the lowest-value, most easily replaceable link." },
   ];
+  const published = [
+    {
+      title: "Quarterly Monitoring of Economic Activity in Bogotá with Satellite and Mobility Data",
+      authors: "With Eduard F. Martínez-González. Cuadernos de Desarrollo Económico No. 83, Secretaría de Desarrollo Económico, Alcaldía Mayor de Bogotá. February 2026.",
+      body: "Quarterly GDP estimation at the 450 m grid level using VIIRS night lights, TransMilenio mobility, and census data, with a feedforward neural network evaluated across approximately 16,000 model configurations using rolling-origin validation.",
+      link: { href: "https://observatorio.desarrolloeconomico.gov.co/wp-content/uploads/2026/02/cuaderno-83-ModePredigPIB.pdf", label: "Report" },
+    },
+  ];
   return (
     <PageShell>
       <SectionBlock title="research" bordered={false}>
-        <div className="mb-12">
-          <h3 className="font-serif text-lg mb-4">Interests</h3>
-          <div className="flex flex-wrap gap-2">
-            {interests.map((t) => (
-              <span
-                key={t}
-                className="px-2.5 py-1 rounded-full border border-border/70 bg-muted/30 text-xs font-mono tracking-wide text-foreground/80 hover:border-primary/50 hover:text-foreground transition-colors"
-              >
-                {t}
-              </span>
-            ))}
-          </div>
-        </div>
+        <p className="text-foreground/85 leading-relaxed">
+          <span className="text-muted-foreground">Interests: </span>
+          {interests.join(", ")}.
+        </p>
+      </SectionBlock>
 
-        <h3 className="font-serif text-lg mb-5">Working papers and projects in progress</h3>
-        <ol className="space-y-5">
-          {projects.map((p, i) => (
-            <li
-              key={p.title}
-              className="group relative grid grid-cols-[2.25rem_1fr] gap-4 p-4 -mx-4 rounded-lg border border-transparent hover:border-border/60 hover:bg-muted/20 transition-colors"
-            >
-              <span className="font-mono text-xs text-muted-foreground pt-1 tabular-nums">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <div className="border-l border-border/60 group-hover:border-primary/60 transition-colors pl-4">
-                <div className="font-serif text-[1.1rem] leading-snug text-foreground">{p.title}</div>
-                <div className="text-sm text-muted-foreground italic mb-2">{p.authors}</div>
-                <p className="text-foreground/85 leading-relaxed">{p.body}</p>
-              </div>
+      <SectionBlock title="published work">
+        <ul className="space-y-6">
+          {published.map((p) => (
+            <li key={p.title}>
+              <div className="font-serif text-[1.1rem] leading-snug text-foreground">{p.title}</div>
+              <div className="text-sm text-muted-foreground mb-1">{p.authors}</div>
+              <p className="text-foreground/85 leading-relaxed">{p.body}</p>
+              <a href={p.link.href} target="_blank" rel="noreferrer" className="mt-1 inline-block text-sm text-primary hover:underline">{p.link.label}</a>
             </li>
           ))}
-        </ol>
+        </ul>
+      </SectionBlock>
+
+      <SectionBlock title="working papers">
+        <ul className="space-y-6">
+          {projects.map((p) => (
+            <li key={p.title}>
+              <div className="font-serif text-[1.1rem] leading-snug text-foreground">{p.title}</div>
+              <div className="text-sm text-muted-foreground mb-1">{p.authors}</div>
+              <p className="text-foreground/85 leading-relaxed">{p.body}</p>
+            </li>
+          ))}
+        </ul>
       </SectionBlock>
     </PageShell>
   );
