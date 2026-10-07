@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import portrait from "@/assets/miguel-portrait.png";
+import portraitAsset from "@/assets/miguel-portrait.jpeg.asset.json";
 import { Mail, Github, Linkedin, FileText, ExternalLink } from "lucide-react";
 import { PageShell, SectionBlock, EMAIL, LINKEDIN, GITHUB, CV_URL } from "@/components/site";
 
@@ -10,6 +10,8 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "Undergraduate researcher in economics at Universidad Icesi (CIENFI). Research interests: theoretical models, applied econometrics, causal inference, and the economics of crime." },
       { property: "og:title", content: "Miguel Ángel Torres Montoya — Economics" },
       { property: "og:description", content: "Undergraduate researcher in economics. Theoretical models, applied econometrics, causal inference, and the economics of crime." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
     ],
   }),
   component: HomePage,
@@ -62,9 +64,10 @@ function About() {
             <p>
               I work with administrative data and econometric methods to test micro-founded
               hypotheses about criminal justice outcomes and education policy. My current
-              projects include the analysis of sentencing disparities in Colombia's accusatory
-              system and the evaluation of state-capacity constraints on education policy
-              implementation.
+               projects identify the effect of judge sex on criminal sentencing through
+               institutional random assignment, examine state capacity and the effects of
+               full-school-day education reform on dropout, and study the cocaine value chain
+               and the limits of eradication policy.
             </p>
             <p>
               I am interested in pursuing graduate studies in economics. You can find a recent
@@ -75,7 +78,7 @@ function About() {
 
           <aside className="md:w-64 mx-auto md:mx-0">
             <div className="rounded-full overflow-hidden ring-1 ring-border w-44 h-44 md:w-56 md:h-56 mx-auto">
-              <img src={portrait} alt="Miguel Ángel Torres Montoya" className="w-full h-full object-cover object-center" />
+              <img src={portraitAsset.url} alt="Miguel Ángel Torres Montoya" className="w-full h-full object-cover object-[50%_30%]" />
             </div>
             <div className="mt-5 font-mono text-xs leading-relaxed text-muted-foreground whitespace-pre-line text-center md:text-left">
               {`B.A. in Economics (in progress)
@@ -104,12 +107,7 @@ function Education() {
       degree: "Bogotá Summer School in Economics",
       detail: "Real Analysis, Bogotá Summer School in Economics (4.7/5.0).",
       term: "2026",
-    },
-    {
-      school: "Berchmans School, Cali",
-      degree: "High School Diploma (Bachiller)",
-      detail: "",
-      term: "2022",
+      link: "https://www.dropbox.com/scl/fi/jwm19i435njpeiqkwrxyn/MIGUEL-ANGEL-TORRES.pdf?rlkey=67ik5j7a6w365jy7v1wvos7uw&st=jzxf6gew&dl=0",
     },
   ];
   return (
@@ -122,6 +120,7 @@ function Education() {
               <div className="font-serif text-[1.05rem] text-foreground">{it.school}</div>
               <div className="text-sm text-muted-foreground">{it.degree}</div>
               {it.detail && <div className="text-sm text-foreground/80 mt-1">{it.detail}</div>}
+              {it.link && <a href={it.link} target="_blank" rel="noreferrer" className="mt-2 inline-flex font-mono text-xs text-primary hover:underline">Certificate ↗</a>}
             </div>
             <div className="font-mono text-xs text-muted-foreground md:text-right md:pt-1.5">{it.term}</div>
           </li>
@@ -144,6 +143,10 @@ function Contact() {
         <li className="flex items-center gap-3">
           <Mail className="size-4 text-muted-foreground" />
           <a href={`mailto:${EMAIL}`} className="hover:text-primary hover:underline">{EMAIL}</a>
+        </li>
+        <li className="flex items-center gap-3">
+          <Mail className="size-4 text-muted-foreground" />
+          <a href="mailto:miguel.torres2@u.icesi.edu.co" className="hover:text-primary hover:underline">miguel.torres2@u.icesi.edu.co</a>
         </li>
         <li className="flex items-center gap-3">
           <Linkedin className="size-4 text-muted-foreground" />
