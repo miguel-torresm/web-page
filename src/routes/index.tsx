@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import portraitAsset from "@/assets/miguel-portrait.jpeg.asset.json";
 import { Mail, Github, Linkedin, FileText, ExternalLink } from "lucide-react";
-import { PageShell, SectionBlock, EMAIL, LINKEDIN, GITHUB, CV_URL } from "@/components/site";
+import { PageShell, SectionBlock, asset, EMAIL, LINKEDIN, GITHUB, CV_URL } from "@/components/site";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -78,7 +77,7 @@ function About() {
 
           <aside className="md:w-64 mx-auto md:mx-0">
             <div className="rounded-full overflow-hidden ring-1 ring-border w-44 h-44 md:w-56 md:h-56 mx-auto">
-              <img src={portraitAsset.url} alt="Miguel Ángel Torres Montoya" className="w-full h-full object-cover object-[50%_30%]" />
+              <img src={asset("profile/miguel-portrait.jpeg")} alt="Miguel Ángel Torres Montoya" className="w-full h-full object-cover object-[50%_30%]" />
             </div>
             <div className="mt-5 font-mono text-xs leading-relaxed text-muted-foreground whitespace-pre-line text-center md:text-left">
               {`B.A. in Economics (in progress)

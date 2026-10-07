@@ -1,12 +1,13 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Sun, Moon } from "lucide-react";
-import cvAsset from "@/assets/cv.pdf.asset.json";
 
 export const LINKEDIN = "https://www.linkedin.com/in/miguel-angel-torres-montoya-economics/";
 export const EMAIL = "m.torresmontoya22@gmail.com";
 export const GITHUB = "https://github.com/Miguet2209";
-export const CV_URL = cvAsset.url;
+const BASE = import.meta.env.BASE_URL;
+export const asset = (path: string) => `${BASE}${path.replace(/^\//, "")}`;
+export const CV_URL = asset("profile/cv.pdf");
 
 function ThemeToggle() {
   const [theme, setTheme] = useState<"dark" | "light">("dark");
