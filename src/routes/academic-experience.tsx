@@ -3,7 +3,7 @@ import { PageShell, SectionBlock, asset } from "@/components/site";
 
 
 const CERTIFICATE_IEM01X = "https://courses.edx.org/certificates/394dc8c9c5b1481bb28bcd3eb8a6a856";
-const SLIDES_CAUSAL_INFERENCE = asset("articles/workshop_inferencia_causal.pptx");
+const SLIDES_CAUSAL_INFERENCE = asset("articles/workshop_causal_inference.pdf");
 
 export const Route = createFileRoute("/academic-experience")({
   head: () => ({
