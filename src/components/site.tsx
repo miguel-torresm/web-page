@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Sun, Moon } from "lucide-react";
 
 export const LINKEDIN = "https://www.linkedin.com/in/miguel-angel-torres-montoya-economics/";
+export const SCHOLAR = "https://scholar.google.com/citations?hl=en&user=XkBz5GgAAAAJ";
 export const EMAIL = "m.torresmontoya22@gmail.com";
 const BASE = import.meta.env.BASE_URL;
 export const asset = (path: string) => `${BASE}${path.replace(/^\//, "")}`;

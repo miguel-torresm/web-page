@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Mail, Linkedin, FileText, ExternalLink } from "lucide-react";
-import { PageShell, SectionBlock, Entry, asset, EMAIL, LINKEDIN, CV_URL } from "@/components/site";
+import { Mail, Linkedin, GraduationCap, FileText, ExternalLink } from "lucide-react";
+import { PageShell, SectionBlock, Entry, asset, EMAIL, LINKEDIN, SCHOLAR, CV_URL } from "@/components/site";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -44,6 +44,7 @@ function About() {
             <div className="flex flex-wrap items-center gap-4 text-muted-foreground mb-2">
               <a href={`mailto:${EMAIL}`} aria-label="Email" className="hover:text-primary transition"><Mail className="size-5" /></a>
               <a href={LINKEDIN} target="_blank" rel="noreferrer" aria-label="LinkedIn" className="hover:text-primary transition"><Linkedin className="size-5" /></a>
+              <a href={SCHOLAR} target="_blank" rel="noreferrer" aria-label="Google Scholar" className="hover:text-primary transition"><GraduationCap className="size-5" /></a>
               <a href={CV_URL} target="_blank" rel="noreferrer" aria-label="CV" className="hover:text-primary transition inline-flex items-center gap-1.5 text-sm">
                 <FileText className="size-5" /> <span className="underline-offset-4 hover:underline">CV</span>
               </a>
@@ -163,6 +164,12 @@ function Contact() {
           <Linkedin className="size-4 text-muted-foreground" />
           <a href={LINKEDIN} target="_blank" rel="noreferrer" className="hover:text-primary hover:underline inline-flex items-center gap-1">
             linkedin.com/in/miguel-angel-torres-montoya-economics <ExternalLink className="size-3" />
+          </a>
+        </li>
+        <li className="flex items-center gap-3">
+          <GraduationCap className="size-4 text-muted-foreground" />
+          <a href={SCHOLAR} target="_blank" rel="noreferrer" className="hover:text-primary hover:underline inline-flex items-center gap-1">
+            Google Scholar <ExternalLink className="size-3" />
           </a>
         </li>
         <li className="flex items-center gap-3">
