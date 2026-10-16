@@ -66,8 +66,9 @@ function About() {
               hypotheses about criminal justice outcomes and education policy. My current
                projects identify the effect of judge sex on criminal sentencing through
                institutional random assignment, examine state capacity and the effects of
-               full-school-day education reform on dropout, and study the cocaine value chain
-               and the limits of eradication policy.
+               full-school-day education reform on dropout. I have also
+               co-authored a policy brief on the cocaine value chain and the limits of
+               eradication policy.
             </p>
             <p>
               I am interested in pursuing graduate studies in economics. You can find a recent

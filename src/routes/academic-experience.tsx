@@ -20,7 +20,7 @@ export const Route = createFileRoute("/academic-experience")({
 
 function AcademicExperiencePage() {
   const research = [
-    { org: "Center for Research in Economics and Finance (CIENFI), Universidad Icesi", role: "Research Assistant", supervisor: "Eduard F. Martínez-González", term: "2025 — present", detail: "Research on criminal sentencing and education policy using econometric and causal inference methods. Additional projects include quarterly monitoring of economic activity in Bogotá and descriptive analysis of property owner claims following Cali's cadastral reassessment." },
+    { org: "Center for Research in Economics and Finance (CIENFI), Universidad Icesi", role: "Research Assistant", supervisor: "Eduard F. Martínez-González", term: "2025 — present", detail: "Research on criminal sentencing and education policy using econometric and causal inference methods. Projects include quarterly monitoring of economic activity in Bogotá (Cuadernos de Desarrollo Económico No. 83)." },
     { org: "Finance & Investment Club (FIC), Universidad Icesi", role: "Contributing Researcher, Research Seedbed", supervisor: null, term: "2026 — present", detail: "Contributing researcher in the club's newly founded research division. Designed and delivered a workshop on causal inference methods for undergraduate researchers.", links: [{ href: SLIDES_CAUSAL_INFERENCE, label: "Workshop slides" }] },
   ];
   const teaching = [
