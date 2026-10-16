@@ -25,7 +25,6 @@ function ResearchPage() {
   ];
   const projects = [
     { title: "Judges or the System? Causal Evidence on Gender Disparities in Criminal Sentencing in Colombia", authors: "Undergraduate thesis · with Eduard F. Martínez and Daniel Mejía.", body: "Causally identifies the effect of judge sex on sentence length using institutional random assignment (SARJ) across 24 Colombian judicial districts." },
-    { title: "Sentencing Process Analysis in the Colombian Accusatory System", authors: "with Eduard F. Martínez-González and Daniel Mejía-Londoño.", body: "Examines the full criminal-justice pipeline from criminal notice to final court ruling, identifying procedural bottlenecks and sentencing disparities using econometric tools." },
     { title: "State Capacity and Education Policy Implementation in Colombia", authors: "Research in progress.", body: "Uses a staggered difference-in-differences design to examine whether local institutional capacity shapes the effect of the full-school-day reform on dropout." },
     { title: "Illicit Drugs in Colombia: The Limits of Eradication and the Tasks Ahead", authors: "with Juan David Gelvez (GIGA) and Eduard F. Martínez.", body: "Examines the cocaine value chain from coca leaf to the European retail market, showing why eradication targets the lowest-value, most easily replaceable link." },
   ];
