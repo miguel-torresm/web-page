@@ -26,9 +26,14 @@ function ResearchPage() {
   const projects = [
     { title: "Judges or the System? Causal Evidence on Gender Disparities in Criminal Sentencing in Colombia", authors: "Undergraduate thesis · with Eduard F. Martínez and Daniel Mejía.", body: "Causally identifies the effect of judge sex on sentence length using institutional random assignment (SARJ) across 24 Colombian judicial districts." },
     { title: "State Capacity and Education Policy Implementation in Colombia", authors: "Research in progress.", body: "Uses a staggered difference-in-differences design to examine whether local institutional capacity shapes the effect of the full-school-day reform on dropout." },
-    { title: "Illicit Drugs in Colombia: The Limits of Eradication and the Tasks Ahead", authors: "with Juan David Gelvez (GIGA) and Eduard F. Martínez.", body: "Examines the cocaine value chain from coca leaf to the European retail market, showing why eradication targets the lowest-value, most easily replaceable link." },
   ];
   const published = [
+    {
+      title: "Illicit Drugs in Colombia: The Limits of Eradication and the Tasks Ahead",
+      authors: "With Juan David Gélvez and Eduard F. Martínez. Centro de Estudios sobre Seguridad y Drogas (CESED), Universidad de los Andes.",
+      body: "Examines the cocaine value chain from coca leaf to the European retail market, showing why eradication targets the lowest-value, most easily replaceable link.",
+      link: { href: "https://cesed.uniandes.edu.co/drogas-ilicitas-en-colombia/", label: "Policy brief" },
+    },
     {
       title: "Quarterly Monitoring of Economic Activity in Bogotá with Satellite and Mobility Data",
       authors: "With Eduard F. Martínez-González. Cuadernos de Desarrollo Económico No. 83, Secretaría de Desarrollo Económico, Alcaldía Mayor de Bogotá. February 2026.",
