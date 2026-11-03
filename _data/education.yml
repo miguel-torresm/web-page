@@ -1,0 +1,31 @@
+education:
+  - title: "Universidad Icesi, Colombia"
+    sub: "B.A. in Economics · GPA 4.5/5.0"
+    term: "Expected 2027"
+    text: "Graduate-level coursework: Quantitative and Computational Methods (4.8), Advanced Macroeconomics (4.8), Advanced Microeconomics (in progress), Game Theory and Asymmetric Information (in progress), Advanced Econometrics (in progress)."
+  - title: "Universidad del Rosario, Bogotá"
+    sub: "Bogotá Summer School in Economics"
+    term: "2026"
+    text: "Real Analysis (4.7/5.0)."
+honors:
+  - title: "First Place, Undergraduate Presentation Competition on Behavioral Economics"
+    sub: "Universidad Icesi"
+    term: "2026"
+    links: [ { label: "Slides", href: "/articles/ponencia_comportamiento.pdf" } ]
+  - title: "Honor Scholarship"
+    sub: "Universidad Icesi · ranked first in GPA among Economics students (2026-1)"
+    term: "2026"
+  - title: "Third Place, Undergraduate Presentation Competition on the Economics of Crime"
+    sub: "Universidad Icesi"
+    term: "2025"
+    links: [ { label: "Slides", href: "/articles/ponencia_crimen.pdf" } ]
+  - title: "First Place, Undergraduate Economic Debate Competition"
+    sub: "Universidad Icesi"
+    term: "2023"
+  - title: "Honor Roll"
+    sub: "Universidad Icesi · recognized for academic excellence in every semester"
+    term: "2022 – 2026"
+  - title: "IEM01x: Evaluating Impact in Low- and Middle-Income Countries"
+    sub: "World Bank Group, via edX"
+    term: "2026"
+    links: [ { label: "Certificate", href: "https://courses.edx.org/certificates/394dc8c9c5b1481bb28bcd3eb8a6a856" } ]

@@ -1,0 +1,122 @@
+---
+layout: default
+---
+<header>
+  <div>
+    <h1>{{ site.name }}</h1>
+    <p class="affil">Faculty of Business and Economics, <a href="https://www.icesi.edu.co">Universidad Icesi</a> · Cali, Colombia</p>
+    <div class="contact sans">
+      <a href="mailto:{{ site.email }}">email</a>
+      <a href="{{ site.scholar }}">google scholar</a>
+      <a href="{{ site.linkedin }}">linkedin</a>
+      <a href="{{ '/profile/cv.pdf' | relative_url }}">cv (pdf)</a>
+    </div>
+  </div>
+  <img src="{{ '/profile/miguel-portrait.jpeg' | relative_url }}" alt="{{ site.name }}">
+</header>
+
+<nav>
+  <a href="#about">about</a>
+  <a href="#news">news</a>
+  <a href="#publications">publications</a>
+  <a href="#projects">ongoing projects</a>
+  <a href="#experience">experience</a>
+  <a href="#education">education</a>
+  <a href="#honors">honors</a>
+  <button class="theme" id="theme-toggle" type="button" aria-label="Toggle color theme">dark mode</button>
+</nav>
+
+<h2 id="about">About me</h2>
+<p>
+  I am an undergraduate Research Assistant at the
+  <a href="https://www.icesi.edu.co/centros-academicos/cienfi">Center for Research in Economics and Finance (CIENFI)</a>
+  and a senior economics student at Universidad Icesi, working under the supervision of Eduard F. Martínez-González.
+  My research centers on the construction and estimation of theoretical models, applied econometrics, and causal
+  inference, with a particular interest in the economics of crime and education policy in Latin America.
+</p>
+<p>
+  I work with administrative data and econometric methods to test micro-founded hypotheses about criminal justice
+  outcomes and education policy. My current projects identify the effect of judge sex on criminal sentencing through
+  institutional random assignment and examine state capacity and the effects of full-school-day education reform on
+  dropout. I have also co-authored a policy brief on the cocaine value chain and the limits of eradication policy.
+</p>
+<p>
+  I am interested in pursuing graduate studies in economics. You can find a recent copy of my CV
+  <a href="{{ '/profile/cv.pdf' | relative_url }}">here</a>.
+</p>
+<p><b>Research interests:</b> crime economics, education economics, applied econometrics, causal inference.</p>
+
+<h2 id="news">News</h2>
+<ul class="news">
+  {% for n in site.data.news %}
+  <li><span class="date">{{ n.date }}</span><span>{{ n.text }}</span></li>
+  {% endfor %}
+</ul>
+
+<h2 id="publications">Publications</h2>
+{% for p in site.data.publications %}
+<div class="item">
+  <h3>{{ p.title }}</h3>
+  <div class="meta">{{ p.venue }}</div>
+  <p class="meta" style="margin-top:0">{{ p.authors }}</p>
+  <p>{{ p.description }}</p>
+  {% include links.html links=p.links %}
+</div>
+{% endfor %}
+
+<h2 id="projects">Ongoing projects</h2>
+{% for p in site.data.projects %}
+<div class="item">
+  <h3>{{ p.title }}</h3>
+  <div class="meta">{{ p.authors }}</div>
+  <p>{{ p.description }}</p>
+</div>
+{% endfor %}
+
+<h2 id="experience">Experience</h2>
+{% for e in site.data.experience.research %}
+<div class="row">
+  <div>
+    <h3>{{ e.title }}</h3>
+    <div class="sub sans">{{ e.org }}{% if e.sub %} · {{ e.sub }}{% endif %}</div>
+    {% if e.text %}<p>{{ e.text }}</p>{% endif %}
+    {% include links.html links=e.links %}
+  </div>
+  <div class="term">{{ e.term }}</div>
+</div>
+{% endfor %}
+
+<h3 style="margin:1.75rem 0 .75rem">Teaching</h3>
+<p class="sub sans" style="margin-top:-.4rem">Teaching Monitor, Universidad Icesi.</p>
+{% for t in site.data.experience.teaching %}
+<div class="row" style="margin-bottom:.5rem">
+  <div>{{ t.title }}{% if t.sub %}<span class="sub sans"> · {{ t.sub }}</span>{% endif %}</div>
+  <div class="term">{{ t.term }}</div>
+</div>
+{% endfor %}
+
+<h2 id="education">Education</h2>
+{% for e in site.data.education.education %}
+<div class="row">
+  <div>
+    <h3>{{ e.title }}</h3>
+    <div class="sub sans">{{ e.sub }}</div>
+    {% if e.text %}<p>{{ e.text }}</p>{% endif %}
+  </div>
+  <div class="term">{{ e.term }}</div>
+</div>
+{% endfor %}
+
+<h2 id="honors">Honors and training</h2>
+{% for h in site.data.education.honors %}
+<div class="row" style="margin-bottom:.75rem">
+  <div>
+    <div>{{ h.title }}</div>
+    <div class="sub sans">{{ h.sub }}</div>
+    {% include links.html links=h.links %}
+  </div>
+  <div class="term">{{ h.term }}</div>
+</div>
+{% endfor %}
+
+<footer>© {{ 'now' | date: '%Y' }} {{ site.name }} · Universidad Icesi · Cali, Colombia. Built with Jekyll, without tracking cookies.</footer>

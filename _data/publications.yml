@@ -1,0 +1,13 @@
+- title: "Illicit Drugs in Colombia: The Limits of Eradication and the Tasks Ahead"
+  venue: "Centro de Estudios sobre Seguridad y Drogas (CESED), Universidad de los Andes. Adapted in English as “Colombia’s New, Old Drug Policy: Reviving a Failed Model,” GIGA Focus Latin America, No. 7, 2026."
+  authors: "Juan David Gélvez, Eduard F. Martínez, and <b>Miguel Angel Torres-Montoya</b>"
+  description: "Examines the cocaine value chain from coca leaf to the European retail market, showing why eradication targets the lowest-value, most easily replaceable link."
+  links:
+    - { label: "Policy brief (Spanish)", href: "https://cesed.uniandes.edu.co/drogas-ilicitas-en-colombia/" }
+    - { label: "GIGA Focus (English adaptation)", href: "https://www.giga-hamburg.de/en/publications/giga-focus/colombia-s-new-old-drug-policy-reviving-a-failed-model" }
+- title: "Quarterly Monitoring of Economic Activity in Bogotá with Satellite and Mobility Data"
+  venue: "Cuadernos de Desarrollo Económico No. 83, Secretaría de Desarrollo Económico, Alcaldía Mayor de Bogotá. February 2026."
+  authors: "Eduard F. Martínez-González and <b>Miguel Angel Torres-Montoya</b>"
+  description: "Quarterly GDP estimation at the 450 m grid level using VIIRS night lights, TransMilenio mobility, and census data; a feedforward neural network trained on about 16,000 model configurations with rolling-origin validation."
+  links:
+    - { label: "Report", href: "https://observatorio.desarrolloeconomico.gov.co/wp-content/uploads/2026/02/cuaderno-83-ModePredigPIB.pdf" }

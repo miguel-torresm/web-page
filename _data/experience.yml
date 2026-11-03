@@ -1,0 +1,18 @@
+research:
+  - title: "Research Assistant"
+    org: "Center for Research in Economics and Finance (CIENFI), Universidad Icesi, Cali"
+    sub: "Supervisor: Eduard F. Martínez-González"
+    term: "2025 – present"
+    text: "Projects include quarterly GDP monitoring for Bogotá (Cuadernos de Desarrollo Económico No. 83) and research on criminal sentencing and education policy."
+  - title: "Research Seedbed"
+    org: "Finance & Investment Club (FIC), Universidad Icesi, Cali"
+    term: "2026 – present"
+    text: "Contributing researcher in the club's newly founded research division. Designed and delivered a workshop on causal inference methods for undergraduate researchers."
+    links:
+      - { label: "Workshop slides", href: "/articles/workshop_causal_inference.pdf" }
+teaching:
+  - { title: "Introduction to Business Analytics", term: "2025" }
+  - { title: "Microeconomic Theory III", term: "2026 – present" }
+  - { title: "International Economics", term: "2026 – present" }
+  - { title: "Macroeconomic Theory I", term: "2026 – present" }
+  - { title: "Big Data and Machine Learning", term: "2026", sub: "Graduate elective, M.A. in Economics" }

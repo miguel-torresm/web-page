@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy Jekyll site to GitHub Pages
 
 on:
   push:
@@ -19,18 +19,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: oven-sh/setup-bun@v2
-      - run: bun install --frozen-lockfile
-      - run: bun run build
-      - name: Prepare static output
-        run: |
-          DIR=dist/client; [ -d "$DIR" ] || DIR=dist
-          cp "$DIR/index.html" "$DIR/404.html"   # SPA fallback for deep links
-          touch "$DIR/.nojekyll"
-          echo "OUT_DIR=$DIR" >> "$GITHUB_ENV"
-      - uses: actions/upload-pages-artifact@v3
+      - uses: ruby/setup-ruby@v1
         with:
-          path: ${{ env.OUT_DIR }}
+          ruby-version: "3.3"
+          bundler-cache: true
+      - id: pages
+        uses: actions/configure-pages@v5
+      - run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+        env:
+          JEKYLL_ENV: production
+      - uses: actions/upload-pages-artifact@v3
 
   deploy:
     needs: build

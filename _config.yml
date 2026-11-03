@@ -1,0 +1,17 @@
+title: Miguel Angel Torres-Montoya
+description: Undergraduate researcher in economics at Universidad Icesi. Crime economics, education economics, applied econometrics, and causal inference.
+url: https://miguel-torresm.github.io
+baseurl: /web-page
+
+name: Miguel Angel Torres-Montoya
+email: m.torresmontoya22@gmail.com
+linkedin: https://www.linkedin.com/in/miguel-angel-torres-montoya-economics/
+scholar: https://scholar.google.com/citations?hl=en&user=XkBz5GgAAAAJ
+
+# Only these folders/files are published (keeps the repo root out of the site).
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - AGENTS.md
+  - vendor
