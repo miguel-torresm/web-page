@@ -6,10 +6,10 @@ layout: default
     <h1>{{ site.name }}</h1>
     <p class="affil">Faculty of Business and Economics, <a href="https://www.icesi.edu.co">Universidad Icesi</a> · Cali, Colombia</p>
     <div class="contact sans">
-      <a href="mailto:{{ site.email }}">email</a>
-      <a href="{{ site.scholar }}">google scholar</a>
-      <a href="{{ site.linkedin }}">linkedin</a>
-      <a href="{{ '/profile/cv.pdf' | relative_url }}">cv (pdf)</a>
+      <a href="mailto:{{ site.email }}">{% include icon.html name="mail" %}email</a>
+      <a href="{{ site.scholar }}">{% include icon.html name="scholar" %}google scholar</a>
+      <a href="{{ site.linkedin }}">{% include icon.html name="linkedin" %}linkedin</a>
+      <a href="{{ '/profile/cv.pdf' | relative_url }}">{% include icon.html name="file" %}cv (pdf)</a>
     </div>
   </div>
   <img src="{{ '/profile/miguel-portrait.jpeg' | relative_url }}" alt="{{ site.name }}">
@@ -23,7 +23,6 @@ layout: default
   <a href="#experience">experience</a>
   <a href="#education">education</a>
   <a href="#honors">honors</a>
-  <button class="theme" id="theme-toggle" type="button" aria-label="Toggle color theme">dark mode</button>
 </nav>
 
 <h2 id="about">About me</h2>

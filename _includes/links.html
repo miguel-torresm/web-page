@@ -1,7 +1,11 @@
 {%- if include.links -%}
 <div class="links">
   {%- for l in include.links -%}
-  <a href="{% if l.href contains '://' %}{{ l.href }}{% else %}{{ l.href | relative_url }}{% endif %}">{{ l.label }}</a>
+  {%- if l.href contains '://' -%}
+  <a href="{{ l.href }}">{% include icon.html name="external" %}{{ l.label }}</a>
+  {%- else -%}
+  <a href="{{ l.href | relative_url }}">{% include icon.html name="file" %}{{ l.label }}</a>
+  {%- endif -%}
   {%- endfor -%}
 </div>
 {%- endif -%}

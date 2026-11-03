@@ -19,6 +19,12 @@
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 </head>
 <body>
+  <button class="theme" id="theme-toggle" type="button" role="switch" aria-label="Toggle dark mode">
+    <span class="knob">
+      <span class="ico sun">{% include icon.html name="sun" %}</span>
+      <span class="ico moon">{% include icon.html name="moon" %}</span>
+    </span>
+  </button>
   <main>
     {{ content }}
   </main>
