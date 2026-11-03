@@ -33,13 +33,12 @@ main { max-width: 42rem; margin: 0 auto; padding: 3rem 1.25rem 4rem; }
 
 a {
   color: var(--link);
-  text-decoration: underline wavy;
+  text-decoration: underline wavy transparent;
   text-decoration-thickness: 1px;
   text-underline-offset: 4px;
-  text-decoration-color: color-mix(in srgb, currentColor 45%, transparent);
-  transition: color .2s;
+  transition: color .2s, text-decoration-color .2s;
 }
-a:hover { color: var(--link-hover); text-decoration-color: currentColor; }
+a:hover, a:focus-visible { color: var(--link-hover); text-decoration-color: currentColor; }
 .icon { width: 1.05em; height: 1.05em; vertical-align: -0.15em; margin-right: .35em; flex: none; }
 .contact a, .links a { display: inline-flex; align-items: center; }
 .contact .icon, .links .icon { margin-right: .4em; }
