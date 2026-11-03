@@ -48,7 +48,7 @@ layout: default
 <h2 id="news">News</h2>
 <ul class="news">
   {% for n in site.data.news %}
-  <li><span class="date">{{ n.date }}</span><span>{{ n.text }}</span></li>
+  <li><span class="date">{{ n.date }}</span><span>{{ n.text | replace: '@base', site.baseurl }}</span></li>
   {% endfor %}
 </ul>
 
