@@ -15,6 +15,7 @@ honors:
   - title: "Honor Scholarship"
     sub: "Universidad Icesi · ranked first in GPA among Economics students (2026-1)"
     term: "2026"
+    links: [ { label: "Certificate", href: "/profile/cuadro-de-honor-2026-1.pdf" } ]
   - title: "Third Place, Undergraduate Presentation Competition on the Economics of Crime"
     sub: "Universidad Icesi"
     term: "2025"
